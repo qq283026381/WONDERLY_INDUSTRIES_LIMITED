@@ -1,0 +1,17 @@
+@charset "UTF-8";
+ul{
+    height: 50px;
+    list-style:none;
+    background-color: #565656;
+}
+li{
+    float: left;
+    font:italic 600 20px/50px arial,sans-serif;
+    padding:0 10px;
+}
+a{
+    color: #fff7e4;
+}
+a:hover{
+    color: red;
+}
