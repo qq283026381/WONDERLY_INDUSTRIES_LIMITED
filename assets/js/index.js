@@ -9,7 +9,7 @@ window.onload=function () {
     function slide() {
         $("ul").animate({
             left: '-=' + width
-        }, 5000, function () {
+        }, 8000, function () {
             if ($(this).css("left") == -4800+"px") {
                 $(this).css("left",0);
             }
