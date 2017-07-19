@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="3b6a0dcf-609e-44f1-b7f4-74842cbece04" name="php" url="http://www.beview.top/WONDERLY INDUSTRIES LIMITED">
+        <fileTransfer host="59.188.68.41" port="21" rootFolder="/beviewftp0311">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
