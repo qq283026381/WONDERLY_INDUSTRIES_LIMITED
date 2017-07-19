@@ -2,6 +2,7 @@
  * Created by Bonnenu on 2017/7/19.
  */
 window.onload=function () {
+    initIframeHeight();
     var width = $("img").width();
     var height = $('img').height();
     $("li").width(width).height(height);
