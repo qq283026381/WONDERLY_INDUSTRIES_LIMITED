@@ -11,6 +11,7 @@ ul{
     width:500%;
 }
 li{
+    border-radius: 5px ;
     float: left;
     position: relative;
 }
