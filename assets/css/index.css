@@ -2,3 +2,18 @@
 iframe{
     width: 100%;
 }
+.slider{
+    overflow: hidden;
+}
+ul{
+    position: relative;
+    list-style:none;
+    width:500%;
+}
+li{
+    float: left;
+    position: relative;
+}
+img{
+    border-radius: 5px ;
+}

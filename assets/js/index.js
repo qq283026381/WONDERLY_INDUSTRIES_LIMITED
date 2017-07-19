@@ -1,18 +1,19 @@
 /**
- * Created by Bonnenu on 2017/7/18.
+ * Created by Bonnenu on 2017/7/19.
  */
-window.onload = function () {
-    initIframeHeight();
+window.onload=function () {
+    var width = $("img").width();
+    var height = $('img').height();
+    $("li").width(width).height(height);
+    slide();
+    function slide() {
+        $("ul").animate({
+            left: '-=' + width
+        }, 5000, function () {
+            if ($(this).css("left") == -4800+"px") {
+                $(this).css("left",0);
+            }
+            slide();
+        })
+    };
 };
-
-function initIframeHeight() {
-    var iframes = document.getElementsByTagName("iframe");
-    try {
-        for (var i = 0; i < iframes.length; i++) {
-            var iframe = iframes[i];
-            var bHeight = iframe.contentWindow.document.body.offsetHeight;
-            iframe.style.height=bHeight+"px";
-        }
-    } catch (ex) {
-    }
-}
