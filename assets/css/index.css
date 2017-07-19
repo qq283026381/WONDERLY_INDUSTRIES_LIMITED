@@ -3,17 +3,17 @@ iframe{
     width: 100%;
 }
 .slider{
+    width: 980px;
+    height: 400px;
     overflow: hidden;
 }
 ul{
     position: relative;
     list-style:none;
-    width:500%;
 }
 li{
     border-radius: 5px ;
     float: left;
-    position: relative;
 }
 img{
     border-radius: 5px ;
