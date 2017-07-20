@@ -6,13 +6,13 @@ iframe{
     width: 980px;
     height: 400px;
     overflow: hidden;
+    border-radius: 5px ;
 }
 ul{
     position: relative;
     list-style:none;
 }
 li{
-    border-radius: 5px ;
     float: left;
 }
 img{
