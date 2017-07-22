@@ -3,8 +3,10 @@ iframe{
     width: 100%;
 }
 .slider{
-    width: 980px;
-    height: 400px;
+    border: 10px outset deepskyblue;
+    margin:0 auto;
+    width: 950px;
+    height: 475px;
     overflow: hidden;
     border-radius: 5px ;
 }
@@ -14,7 +16,4 @@ ul{
 }
 li{
     float: left;
-}
-img{
-    border-radius: 5px ;
 }
