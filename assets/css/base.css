@@ -14,3 +14,12 @@ a{
 iframe{
     width: 100%;
 }
+.head{
+    height: 145px;
+}
+.nav{
+    height: 50px;
+}
+.foot{
+    height: 20px;
+}
