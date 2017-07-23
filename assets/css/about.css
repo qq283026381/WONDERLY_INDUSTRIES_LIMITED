@@ -1,0 +1,17 @@
+@charset "UTF-8";
+.main{
+    margin-top: 5px;
+    margin-bottom: 20px;
+}
+.title{
+    font:italic 400 30px/60px cambria,sans-serif;
+    border-bottom: solid 2px black;
+    margin-bottom: 10px;
+    text-indent: 15px;
+}
+.detail{
+    padding: 15px;
+    font:italic 300 20px/30px cambria,sans-serif;
+    white-space: pre-wrap;
+    box-shadow: 5px 5px 5px 5px rgba(0,0,0,0.6) ;
+}
