@@ -22,6 +22,6 @@ function showAbout() {
             document.getElementById("detail").innerHTML = xmlhttp.responseText;
         }
     };
-    xmlhttp.open("GET", "../util/ajax/getAbout.php", true);
+    xmlhttp.open("GET", "../../util/ajax/getAbout.php", true);
     xmlhttp.send();
 }
