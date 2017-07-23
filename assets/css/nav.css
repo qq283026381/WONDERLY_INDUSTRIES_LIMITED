@@ -14,8 +14,8 @@ a{
     color: #fff7e4;
 }
 a:hover{
-    color: red;
+    color: #ef4300;
 }
 .active{
-    color: red;
+    color: #ef4300;
 }
