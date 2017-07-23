@@ -26,15 +26,13 @@
     <section class="right">
         <section class="inquiry">
             <form name="guestInfo" action="../../index.html" onsubmit="addGuest()" method="get">
-                <input id="name" type="text" placeholder="Name" name="name"/>
-                <input type="text" placeholder="Position" name="position"/>
+                <input id="name" type="text" placeholder="Name*" required name="name"/>
                 <input type="text" placeholder="Company" name="company"/>
                 <input type="text" placeholder="Country(Region)" name="region"/>
-                <input type="text" placeholder="Detailed Address" name="address"/>
-                <input type="text" placeholder="Post Code" name="postCode"/>
-                <input type="text" placeholder="Phone" name="phone"/>
-                <input type="text" placeholder="Fax*" required name="fax"/>
+                <input type="text" placeholder="Phone*" required name="phone"/>
+                <input type="text" placeholder="Fax" name="fax"/>
                 <input type="email" placeholder="E-mail*" required name="email"/>
+                <textarea name="message" id="message" placeholder="Message"></textarea>
                 <input class="btn btn-submit" value="SUBMIT" type="submit"/>
                 <input class="btn btn-reset" value="RESET" type="reset"/>
             </form>
