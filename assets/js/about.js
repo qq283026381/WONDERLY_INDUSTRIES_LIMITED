@@ -2,8 +2,11 @@
  * Created by Bonnenu on 2017/7/20.
  */
 showAbout();
-window.onload=function () {
-  initIframeHeight();
+window.onload = function () {
+    initIframeHeight();
+    var iframe = document.getElementsByClassName("nav")[0];
+    var about = iframe.contentWindow.document.getElementById("about");
+    about.setAttribute("class","active");
 };
 
 
