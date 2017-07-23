@@ -1,0 +1,35 @@
+@charset "UTF-8";
+.left {
+    width: 30%;
+}
+
+.right {
+    width: 70%;
+}
+
+ul {
+    list-style: none;
+}
+
+.menu li {
+    position: relative;
+    font: italic 300 20px/30px cambria, sans-serif;
+}
+
+.menu li a {
+    color: black;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.menu-title {
+    font-size: 25px !important;
+}
+
+.sub-menu {
+    position: absolute;
+    left: 100px;
+    top: 0;
+    z-index: 999;
+    display: none;
+}
