@@ -1,4 +1,28 @@
 @charset "UTF-8";
+section.content{
+    padding-top: 5px;
+    height: 140px;
+}
+p{
+    color: #021f94;
+}
 a{
     cursor: default;
+    text-decoration: none;
+}
+.content section{
+    float: left;
+}
+.left-word{
+    font:  37px  Ludda Fax,sans-serif ;
+    padding-top: 15px;
+    padding-left: 9px;
+}
+.left-word p{
+    white-space: pre;
+}
+.right-word{
+    font: 47px Lucida Handwriting;
+    padding-top: 37px;
+    padding-left: 32px;
 }
