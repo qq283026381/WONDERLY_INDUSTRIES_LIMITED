@@ -11,3 +11,6 @@ a{
     cursor: pointer;
     text-decoration: none;
 }
+iframe{
+    width: 100%;
+}
