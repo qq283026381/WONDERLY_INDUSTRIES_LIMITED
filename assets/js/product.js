@@ -3,6 +3,7 @@
  */
 window.onload=function () {
     initIframeHeight();
+    setNavActive("product");
     $("li").mouseenter(function () {
         if($(this).children("ul")){
             $(this).children("ul").css("display","block");

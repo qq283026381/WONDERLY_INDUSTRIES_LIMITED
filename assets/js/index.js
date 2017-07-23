@@ -4,6 +4,7 @@
 showSlider();
 window.onload = function () {
     initIframeHeight();
+    setNavActive("home");
     var width = $("img").width();
     var height = $('img').height();
     $("li").width(width).height(height);

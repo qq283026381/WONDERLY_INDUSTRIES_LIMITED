@@ -4,6 +4,7 @@
 showContact();
 window.onload=function () {
     initIframeHeight();
+    setNavActive("contact");
 };
 function showContact() {
     var xmlhttp;
@@ -24,15 +25,13 @@ function showContact() {
     xmlhttp.send();
 }
 function addGuest() {
-    var name,position,company,region,address,postCode,phone,fax,email;
+    var name,company,region,phone,fax,email,message;
     name=guestInfo.name.value?guestInfo.name.value:"";
-    position=guestInfo.position.value?guestInfo.position.value:"";
     company=guestInfo.company.value?guestInfo.company.value:"";
     region=guestInfo.region.value?guestInfo.region.value:"";
-    address=guestInfo.address.value?guestInfo.address.value:"";
-    postCode=guestInfo.postCode.value?guestInfo.postCode.value:"";
     phone=guestInfo.phone.value?guestInfo.phone.value:"";
     fax=guestInfo.fax.value?guestInfo.fax.value:"";
     email=guestInfo.email.value?guestInfo.email.value:"";
-    alert(name+position+company+region+address+postCode+phone+fax+email);
+    message=guestInfo.message.value?guestInfo.message.value:"";
+    alert(name+company+region+phone+fax+email+message);
 }
