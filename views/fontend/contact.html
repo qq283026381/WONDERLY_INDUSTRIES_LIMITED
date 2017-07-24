@@ -25,7 +25,7 @@
     </section>
     <section class="right">
         <section class="inquiry">
-            <form name="guestInfo" action="../../index.html" onsubmit="addGuest()" >
+            <form name="guestInfo" action="../../util/ajax/addGuest.php" method="post" >
                 <input id="name"  placeholder="Name*" required oninvalid="setCustomValidity('Required!');" oninput="setCustomValidity('');" name="name"/>
                 <input placeholder="Company" name="company"/>
                 <input placeholder="Country(Region)" name="region"/>
