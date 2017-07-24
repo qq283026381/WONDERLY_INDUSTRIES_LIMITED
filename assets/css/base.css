@@ -13,6 +13,7 @@ a{
 }
 iframe{
     width: 100%;
+    display: block;
 }
 .head{
     height: 145px;
