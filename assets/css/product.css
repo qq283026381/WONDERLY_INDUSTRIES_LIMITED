@@ -1,14 +1,23 @@
 @charset "UTF-8";
 .left {
+    position: absolute;
+    background-color: pink;
     width: 30%;
 }
-
+.main{
+    position: relative;
+}
 .right {
+    background-color: dodgerblue;
+    float: right;
     width: 70%;
 }
 
 ul {
     list-style: none;
+}
+li{
+    margin: 5px 0;
 }
 
 .menu li {
@@ -23,13 +32,21 @@ ul {
 }
 
 .menu-title {
+    cursor: default;
+    padding-left: 12px;
     font-size: 25px !important;
 }
 
 .sub-menu {
     position: absolute;
-    left: 100px;
-    top: 0;
+    left: 46%;
+    top: -6px;
     z-index: 999;
     display: none;
+}
+.product{
+    padding-left: 12px;
+}
+.detail img{
+    margin:3px 6px;
 }
