@@ -1,6 +1,6 @@
 @charset "UTF-8";
 section.content{
-    padding-top: 5px;
+    padding: 5px 0;
     height: 140px;
 }
 p{
