@@ -1,4 +1,7 @@
 @charset "UTF-8";
+nav{
+    padding-bottom: 5px;
+}
 ul{
     border-radius: 10px 10px 10px 10px;
     height: 50px;
