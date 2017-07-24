@@ -11,9 +11,9 @@
     <script src="../../assets/js/contact.js"></script>
 </head>
 <body>
-<iframe class="head" frameborder="0" scrolling="no" src="head.html"></iframe>
-<iframe class="nav" frameborder="0" scrolling="no" src="nav.html"></iframe>
 <section class="content">
+    <iframe class="head" frameborder="0" scrolling="no" src="head.html"></iframe>
+    <iframe class="nav" frameborder="0" scrolling="no" src="nav.html"></iframe>
     <section class="left">
         <section class="main">
             <p class="address-title">WONDERLY INDUSTRIES LIMITED</p>
@@ -25,11 +25,13 @@
     </section>
     <section class="right">
         <section class="inquiry">
-            <form name="guestInfo" action="../../util/ajax/addGuest.php" method="post" >
-                <input id="name"  placeholder="Name*" required oninvalid="setCustomValidity('Required!');" oninput="setCustomValidity('');" name="name"/>
+            <form name="guestInfo" action="../../util/ajax/addGuest.php" method="post">
+                <input id="name" placeholder="Name*" required oninvalid="setCustomValidity('Required!');"
+                       oninput="setCustomValidity('');" name="name"/>
                 <input placeholder="Company" name="company"/>
                 <input placeholder="Country(Region)" name="region"/>
-                <input placeholder="Phone*" required oninvalid="setCustomValidity('Required!');" oninput="setCustomValidity('');" name="phone"/>
+                <input placeholder="Phone*" required oninvalid="setCustomValidity('Required!');"
+                       oninput="setCustomValidity('');" name="phone"/>
                 <input placeholder="Fax" name="fax"/>
                 <input type="email" placeholder="E-mail*" required name="email"/>
                 <textarea name="message" id="message" placeholder="Message"></textarea>
@@ -38,7 +40,8 @@
             </form>
         </section>
     </section>
+
+    <iframe class="foot" frameborder="0" scrolling="no" src="foot.html"></iframe>
 </section>
-<iframe class="foot" frameborder="0" scrolling="no" src="foot.html"></iframe>
 </body>
 </html>
