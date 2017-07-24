@@ -25,12 +25,12 @@
     </section>
     <section class="right">
         <section class="inquiry">
-            <form name="guestInfo" action="../../index.html" onsubmit="addGuest()" method="get">
-                <input id="name" type="text" placeholder="Name*" required oninvalid="setCustomValidity('Required!');" oninput="setCustomValidity('');" name="name"/>
-                <input type="text" placeholder="Company" name="company"/>
-                <input type="text" placeholder="Country(Region)" name="region"/>
-                <input type="text" placeholder="Phone*" required oninvalid="setCustomValidity('Required!');" oninput="setCustomValidity('');" name="phone"/>
-                <input type="text" placeholder="Fax" name="fax"/>
+            <form name="guestInfo" action="../../index.html" onsubmit="addGuest()" >
+                <input id="name"  placeholder="Name*" required oninvalid="setCustomValidity('Required!');" oninput="setCustomValidity('');" name="name"/>
+                <input placeholder="Company" name="company"/>
+                <input placeholder="Country(Region)" name="region"/>
+                <input placeholder="Phone*" required oninvalid="setCustomValidity('Required!');" oninput="setCustomValidity('');" name="phone"/>
+                <input placeholder="Fax" name="fax"/>
                 <input type="email" placeholder="E-mail*" required name="email"/>
                 <textarea name="message" id="message" placeholder="Message"></textarea>
                 <input class="btn btn-submit" value="SUBMIT" type="submit"/>
