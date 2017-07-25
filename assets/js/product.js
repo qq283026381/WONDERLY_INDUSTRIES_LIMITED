@@ -1,10 +1,11 @@
 /**
  * Created by Bonnenu on 2017/7/23.
  */
+showCategory();
 window.onload = function () {
     initIframeHeight();
     setNavActive("product");
-    showCategory();
+
     categoryMove();
     showProductDetail();
 };
