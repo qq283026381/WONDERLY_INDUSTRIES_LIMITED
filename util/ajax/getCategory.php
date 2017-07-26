@@ -8,7 +8,7 @@
 require "../mysql/mysql.php";
 $mysql = new Mysql();
 $conn = $mysql->connect();
-$queryMenu = "select `item`,`index` from menu order by `index`";
+$queryMenu = "select `item` from menu order by `index`";
 $menuResult = $conn->query($queryMenu);
 $menu = "";
 $submenu = "";
@@ -16,8 +16,8 @@ $content = "";
 if ($menuResult->num_rows > 0) {
     while ($menuItems = $menuResult->fetch_array()) {
         $menu = $menuItems['item'];//获取主菜单
-        $content .= "<a href='#" . strtolower($menu) . "'>" . $menu . "</a>";
-        $querySubmenu = "select `item`,`index` from submenu where `parent`='" . $menuItems['item'] . "' order by `index`";
+        $content .= "<li><a href='#" . strtolower($menu) . "'>" . $menu . "</a>";
+        $querySubmenu = "select `item` from submenu where `parent`='" . $menu . "' order by `index`";
         $submenuResult = $conn->query($querySubmenu);//根据主菜单的每一项去查子菜单
         if ($submenuResult->num_rows > 0) {//若有子菜单
             $content .= "<ul class='sub-menu'>";
@@ -28,6 +28,7 @@ if ($menuResult->num_rows > 0) {
             }
             $content.="</ul>";
         }
+        $content.="</li>";
     }
 }
 
