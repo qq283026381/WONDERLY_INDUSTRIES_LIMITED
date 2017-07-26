@@ -1,7 +1,7 @@
 @charset "UTF-8";
 section.content{
     padding: 5px 0;
-    height: 140px;
+    height: 160px;
 }
 p{
     color: #021f94;
@@ -14,15 +14,15 @@ a{
     float: left;
 }
 .left-word{
-    font:  37px  Ludda Fax,sans-serif ;
-    padding-top: 15px;
+    font:oblique 600 40px  Ludda Fax,serif ;
+    padding-top: 25px;
     padding-left: 9px;
 }
 .left-word p{
     white-space: pre;
 }
 .right-word{
-    font: 47px Lucida Handwriting;
+    font:italic 45px Lucida Handwriting;
     padding-top: 37px;
     padding-left: 32px;
 }
