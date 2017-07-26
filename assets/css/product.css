@@ -94,13 +94,13 @@ li{
 }
 
 .product-detail {
-    padding: 0 10px 25px;
+    padding: 0 15px 25px;
 }
 
 .pic {
     display: block;
     border: solid red 1px;
-    margin: 20px auto 0;
+    margin: 20px auto;
 }
 
 .pre-line {
