@@ -90,6 +90,9 @@ require "../../util/controllers/verify.php";
                             <span class="redStar">*</span> 轮播图尺寸930*475
                         </p>
                         <p>
+                            <span class="redStar">*</span> 轮播图只能上传jpg文件
+                        </p>
+                        <p>
                             <span class="redStar">*</span> 优先级只能设置正整数
                         </p>
                     </div>
