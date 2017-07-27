@@ -8,7 +8,7 @@
 require "../mysql/slider.php";
 $index = isset($_POST['sliderIndex']) ? $_POST['sliderIndex'] : "";
 $file = isset($_FILES['newSliderImg']) ? $_FILES['newSliderImg'] : "";
-$img = $file['name'];
+$img = $file ? $file['name'] : "";
 if ($index != "" && $img != "") {
     $slider = new Slider();
     $result = $slider->getSliderInfo();
@@ -22,8 +22,8 @@ if ($index != "" && $img != "") {
     }
     require "../file/file.php";
     require "../config.php";
-    $upload=new File();
-    $upload->uploadJpg($file,constant("SLIDER_PATH"));
+    $upload = new File();
+    $upload->uploadJpg($file, constant("SLIDER_PATH"));
     if ($slider->addSlider($index, $img)) {
         echo "<script>alert('添加成功！');window.location.href=document.referrer;</script>";
     } else {
