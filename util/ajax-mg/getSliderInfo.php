@@ -19,10 +19,10 @@ if ($result->num_rows > 0) {
         $img = $row['img'];
         if ($i % 2 == 0) {
             $content .= "<tr class='even'>";
-        }else{
+        } else {
             $content .= "<tr class='odd'>";
         }
-        $content .= "<td>" . $index . "</td><td>" . $img . "</td><td><img class='slider-overview' src='../../assets/imgs/slider/" . $img . "' alt='" . $img . "' /></td><td><a href='../../util/controllers/ReviseSliderController.php?img=" . $img . "'><img src='../../assets-mg/img/edit.png' border='0'/> </a></td><td><a href='../../util/ajax-mg/deleteSlider.php?img=" . $img . "'><img src='../../assets-mg/img/trash.gif' border='0'/> </a></td></tr>";
+        $content .= "<td>" . $index . "</td><td>" . $img . "</td><td><img class='slider-overview' src='../../assets/imgs/slider/" . $img . "' alt='" . $img . "' /></td><td><a><img onclick='showBox();showSliderDetail(\"" . $img . "\")' src='../../assets-mg/img/edit.png' border='0'/> </a></td><td><a href='../../util/ajax-mg/deleteSlider.php?img=" . $img . "'><img src='../../assets-mg/img/trash.gif' border='0'/> </a></td></tr>";
         $i++;
     }
     $content .= "</tbody>";
