@@ -8,7 +8,7 @@
 require "../mysql/mysql.php";
 $mysql = new Mysql();
 $conn = $mysql->connect();
-$querySliderImg = "select `img` from slider";
+$querySliderImg = "select `img` from slider order by `index` ";
 $result = $conn->query($querySliderImg);
 if ($result->num_rows > 0) {
     while ($row = $result->fetch_array()) {
