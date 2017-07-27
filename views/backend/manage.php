@@ -88,7 +88,7 @@
                     <div class="trigger"><a href="#">Tips</a></div>
                     <div class="toggle_container">
                         <p>
-                            <span class="redStar">*</span> 轮播图尺寸930*475
+                            <span class="redStar">*</span> 轮播图尺寸950*475
                         </p>
                         <p>
                             <span class="redStar">*</span> 轮播图只能上传jpg文件
