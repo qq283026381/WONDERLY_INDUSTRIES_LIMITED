@@ -1,5 +1,6 @@
 window.onload = function () {
     showSliderInfo();
+    showAboutContent();
     slidebarMove();
 };
 
@@ -189,5 +190,17 @@ function getSliderDetail(img) {
         }
     };
     xmlhttp.open("GET", "../../util/ajax-mg/getSliderDetail.php?img="+img, true);
+    xmlhttp.send();
+}
+
+function showAboutContent() {
+    var xmlhttp = returnXmlhttp();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            document.getElementById("about-page-content").innerHTML = xmlhttp.responseText;
+            document.getElementById("about-content").innerHTML = xmlhttp.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../../util/ajax-mg/getAboutContent.php", true);
     xmlhttp.send();
 }
