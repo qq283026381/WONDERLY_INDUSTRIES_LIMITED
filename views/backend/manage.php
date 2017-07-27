@@ -1,5 +1,5 @@
 <?php
-require "../../util/controllers/verify.php";
+//require "../../util/controllers/verify.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -11,7 +11,6 @@ require "../../util/controllers/verify.php";
     <!-- jQuery file -->
     <script src="../../assets-mg/js/jquery.min.js"></script>
     <script src="../../assets-mg/js/jquery.tabify.js" charset="utf-8"></script>
-    <script src="../../assets-mg/js/scripts.js"></script>
     <script src="../../assets-mg/js/manage.js"></script>
     <script>
         var $ = jQuery.noConflict();
@@ -94,6 +93,9 @@ require "../../util/controllers/verify.php";
                         </p>
                         <p>
                             <span class="redStar">*</span> 优先级只能设置正整数
+                        </p>
+                        <p>
+                            <span class="redStar">*</span> 优先级可重复
                         </p>
                     </div>
                 </div>
@@ -454,7 +456,7 @@ require "../../util/controllers/verify.php";
         <div class="sidebar" id="sidebar">
             <h2>Page Section</h2>
             <ul id="sideMenu">
-                <li class="active"><a href="#courseManage">课程管理</a></li>
+                <li class="active"><a href="#">课程管理</a></li>
                 <li><a href="#studentManage">学生管理</a></li>
                 <li><a href="#courseSelectManage">选课管理</a></li>
             </ul>
@@ -482,5 +484,19 @@ require "../../util/controllers/verify.php";
     <div class="footer">
     </div>
 </div>
+
+<div id="revise-mask" class="mask">
+    <div id="revise-box" class="box">
+        <div class="revise-box-title">
+            <h2>轮播图</h2>
+            <div id="close-box" class="close">
+            </div>
+        </div>
+        <div id="revise-detail" class="revise-detail">
+            <form id="revise-form" class="form" action="../../util/ajax-mg/reviseSlider.php" enctype="multipart/form-data" method="post" onsubmit="return checkReviseImg();"></form>
+        </div>
+    </div>
+</div>
+<img src="" id="tempImg" dynsrc=""  style="display:none" />
 </body>
 </html>
