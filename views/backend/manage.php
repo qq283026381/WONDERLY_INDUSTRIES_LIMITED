@@ -70,7 +70,7 @@ require "../../util/controllers/verify.php";
                     <form class="form" action="../../util/ajax-mg/addSlider.php" enctype="multipart/form-data" method="post" onsubmit="return checkImg();">
                         <div class="form_row">
                             <label for="sliderImg">优先级:</label>
-                            <input type="number" min="1" autocomplete="off" placeholder="输入 1 以上的整数" class="form_input" name="sliderIndex" id="sliderIndex"/>
+                            <input type="number" min="1" autocomplete="off" required placeholder="输入 1 以上的整数" class="form_input" name="sliderIndex" id="sliderIndex"/>
                             <span class="warming"></span>
                         </div>
                         <div class="form_row">
