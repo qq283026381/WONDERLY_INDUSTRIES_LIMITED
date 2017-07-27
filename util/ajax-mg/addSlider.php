@@ -16,4 +16,6 @@ if ($index != "" && $img != "") {
     } else {
         echo "<script>alert('添加失败！');history.back();</script>";
     }
+}else{
+    echo "<script>alert('添加失败！');history.back();</script>";
 }
