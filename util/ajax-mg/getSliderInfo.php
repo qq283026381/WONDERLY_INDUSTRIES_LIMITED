@@ -11,7 +11,6 @@ $content = "";
 $result = $slider->getSliderInfo();
 if ($result->num_rows > 0) {
     $content .= "<thead><tr><th>优先级</th><th>图片</th><th>预览</th><th>Edit</th><th>Delete</th></tr></thead>";
-    $content .= "<tfoot><tr><td colspan='12'>sdfasffs</td></tr></tfoot>";
     $content .= "<tbody>";
     $i = 0;
     while ($row = $result->fetch_array()) {
