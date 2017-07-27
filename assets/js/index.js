@@ -14,7 +14,7 @@ window.onload = function () {
         $("ul").animate({
             left: '-=' + width
         }, 8000, function () {
-            if ($(this).css("left") === -4 * width + "px") {
+            if ($(this).css("left") === -$("#slider>li").length * width + "px") {
                 $(this).css("left", 0);
             }
             slide();
