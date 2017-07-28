@@ -36,4 +36,23 @@ class Contact
         $conn->close();
         return $result;
     }
+
+    function getImg(){
+        $mysql = new Mysql();
+        $conn = $mysql->connect();
+        $queryAddress = "select `img` from contact ";
+        $result = $conn->query($queryAddress);
+        $conn->close();
+        return $result;
+    }
+
+    function reviseImg($img)
+    {
+        $mysql = new Mysql();
+        $conn = $mysql->connect();
+        $queryReviseImg = "update contact set `img` = '" . $img . "'";
+        $result=$conn->query($queryReviseImg);
+        $conn->close();
+        return $result;
+    }
 }
