@@ -10,19 +10,21 @@ window.onload = function () {
     $("li").width(width).height(height);
     $("ul").width($("img").length * 100 + "%");
     slide();
+
     function slide() {
         $("ul").animate({
             left: '-=' + width
         }, 8000, function () {
-            if ($(this).css("left") === -$("#slider>li").length * width + "px") {
+            if ($(this).css("left") === -($("#slider>li").length - 1) * width + "px") {
                 $(this).css("left", 0);
             }
             slide();
         })
     }
 };
+
 function showSlider() {
-    var xmlhttp=returnXmlhttp();
+    var xmlhttp = returnXmlhttp();
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
             document.getElementById("slider").innerHTML = xmlhttp.responseText;
