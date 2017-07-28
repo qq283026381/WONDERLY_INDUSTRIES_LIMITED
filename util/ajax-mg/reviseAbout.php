@@ -10,7 +10,7 @@ $about=new About();
 $content=isset($_POST['about-content'])?$_POST['about-content']:"";
 $result=$about->reviseAbout($content);
 if($result){
-    echo "<script>alert('修改成功！');window.location.href=document.referrer;</script>";
+    echo "<script>alert('修改成功！');window.location.href=document.referrer+'#aboutManage-tab';</script>";
 }else{
     echo "<script>alert('修改失败！');history.back();</script>";
 }
