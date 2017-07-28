@@ -1,10 +1,11 @@
 window.onload = function () {
-    showSliderInfo();
-    showAboutContent();
-    slidebarMove();
-    showGuestInfo();
-    showAddress();
-    showContactPic();
+    showSliderInfo();   //获取轮播图信息
+    showAboutContent(); //获取关于我们的内容
+    slidebarMove();     //侧栏跟随移动
+    showGuestInfo();    //获取客户存留信息
+    showAddress();      //获取联系方式内容
+    showContactPic();   //获取联系我们的图片
+    showMenuSubmenu();  //获取产品菜单和子菜单
 };
 
 function slidebarMove() {
@@ -191,15 +192,15 @@ function checkContactImg() {
     }
 }
 
-function showSliderDetail(img) {
-    getSliderDetail(img);
-    $("#revise-mask").click(hideBox);
-    $("#close-box").mouseenter(function () {
+function showSliderDetail(img) {  //修改轮播图信息时调用的方法
+    getSliderDetail(img);  //获取名为img的轮播图的信息
+    $("#revise-mask").click(hideBox);  //弹窗背景绑定隐藏方法
+    $("#close-box").mouseenter(function () {     //当鼠标移入修改框的关闭按钮时，更改关闭图片
         $(this).fadeOut("fast", function () {
             $(this).css("background", "url('../../assets/imgs/icons/close-hover.png') no-repeat");
             $(this).fadeIn("fast");
         })
-    }).mouseleave(function () {
+    }).mouseleave(function () {  //当鼠标移出修改框的关闭按钮时，图片换回默认
         $(this).fadeOut("fast", function () {
             $(this).css("background", "url('../../assets/imgs/icons/close.png') no-repeat");
             $(this).fadeIn("fast");
@@ -277,5 +278,16 @@ function showContactPic() {
         }
     };
     xmlhttp.open("GET", "../../util/ajax-mg/getContactPic.php", true);
+    xmlhttp.send();
+}
+
+function showMenuSubmenu() {
+    var xmlhttp = returnXmlhttp();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            document.getElementById("menu-list").innerHTML = xmlhttp.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../../util/ajax-mg/getMenu.php", true);
     xmlhttp.send();
 }
