@@ -3,6 +3,7 @@ window.onload = function () {
     showAboutContent();
     slidebarMove();
     showGuestInfo();
+    showAddress();
 };
 
 function slidebarMove() {
@@ -214,5 +215,16 @@ function showGuestInfo() {
         }
     };
     xmlhttp.open("GET", "../../util/ajax-mg/getGuestInfo.php", true);
+    xmlhttp.send();
+}
+
+function showAddress() {
+    var xmlhttp = returnXmlhttp();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            document.getElementById("revise-address").innerText = xmlhttp.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../../util/ajax-mg/getAddress.php", true);
     xmlhttp.send();
 }
