@@ -52,6 +52,8 @@
         <ul id="submenu">
             <li class="active"><a href="#homeManage">首页管理</a></li>
             <li><a href="#aboutManage">关于管理</a></li>
+            <li><a href="#categoryManage">分类管理</a></li>
+            <li><a href="#productManage">产品管理</a></li>
             <li><a href="#contactManage">联系管理</a></li>
         </ul>
     </div>
@@ -61,6 +63,149 @@
             <div class="right_content" id="homeManage">
                 <h2>轮播图清单</h2>
                 <table id="slider-table" class="rounded-corner"></table>
+                <ul class="tabsmenu">
+                    <li class="active"><a href="#addSlider">添加轮播图</a></li>
+                </ul>
+                <div id="addSlider" class="tabcontent">
+                    <h3>选择轮播图</h3>
+                    <form class="form" action="../../util/ajax-mg/addSlider.php" enctype="multipart/form-data"
+                          method="post" onsubmit="return checkImg();">
+                        <div class="form_row">
+                            <label for="sliderImg">优先级:</label>
+                            <input type="number" min="1" autocomplete="off" required placeholder="输入 1 以上的整数"
+                                   class="form_input" name="sliderIndex" id="sliderIndex"/>
+                            <span class="warming"></span>
+                        </div>
+                        <div class="form_row">
+                            <label for="sliderImg">图片:</label>
+                            <input type="file" name="newSliderImg" id="sliderImg"/>
+                        </div>
+                        <div class="form_row">
+                            <input type="submit" class="form_submit" value="添加"/>
+                        </div>
+                        <div class="clear"></div>
+                    </form>
+                </div>
+                <div class="toogle_wrap">
+                    <div class="trigger"><a href="#">Tips</a></div>
+                    <div class="toggle_container">
+                        <p>
+                            <span class="redStar">*</span> 轮播图尺寸950*475
+                        </p>
+                        <p>
+                            <span class="redStar">*</span> 轮播图只能上传jpg文件
+                        </p>
+                        <p>
+                            <span class="redStar">*</span> 优先级只能设置正整数
+                        </p>
+                        <p>
+                            <span class="redStar">*</span> 优先级可重复
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="right_content" id="categoryManage">
+                <h2>分类清单</h2>
+                <table id="category-table" class="rounded-corner">
+                    <thead>
+                    <tr>
+                        <th>优先级</th>
+                        <th>分类名</th>
+                        <th>父级栏</th>
+                        <th>编辑</th>
+                        <th>删除</th>
+                    </tr>
+                    </thead>
+                    <tbody id="menu-list"></tbody>
+                </table>
+                <ul class="tabsmenu">
+                    <li class="active"><a href="#addCatagory">添加分类</a></li>
+                </ul>
+                <div id="addCatagory" class="tabcontent">
+                    <h3>新增分类</h3>
+                    <form class="form" action="../../util/ajax-mg/addSlider.php"
+                          method="post" onsubmit="return checkImg();">
+                        <div class="form_row">
+                            <label for="categoryIndex">优先级:</label>
+                            <input type="number" min="1" autocomplete="off" required placeholder="输入 1 以上的整数"
+                                   class="form_input" name="categoryIndex" id="categoryIndex"/>
+                            <span class="warming"></span>
+                        </div>
+                        <div class="form_row">
+                            <label for="categorySubmenu">分类:</label>
+                            <input class="form_input" list="submenuList" name="categorySubmenu" id="categorySubmenu"/>
+                        </div>
+                        <datalist id="submenuList">
+                            <option value="11"></option>
+                            <option value="22"></option>
+                            <option value="33"></option>
+                        </datalist>
+                        <div class="form_row">
+                            <label for="categoryMenu">父类:</label>
+                            <input class="form_input" value="无" list="menuList" name="categoryMenu" id="categoryMenu"/>
+                        </div>
+                        <datalist id="menuList">
+                            <option value="1"></option>
+                            <option value="2"></option>
+                            <option value="3"></option>
+                        </datalist>
+                        <div class="form_row">
+                            <input type="submit" class="form_submit" value="添加"/>
+                        </div>
+                        <div class="clear"></div>
+                    </form>
+                </div>
+                <div class="toogle_wrap">
+                    <div class="trigger"><a href="#">Tips</a></div>
+                    <div class="toggle_container">
+                        <p>
+                            <span class="redStar">*</span> 务必先添加分类再添加产品
+                        </p>
+                        <p>
+                            <span class="redStar">*</span> 父类默认为无
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="right_content" id="productManage">
+                <h2>产品清单</h2>
+                <table id="product-table" class="rounded-corner">
+                    <thead>
+                    <tr>
+                        <th>优先级</th>
+                        <th>图片</th>
+                        <th>描述</th>
+                        <th>规格</th>
+                        <th>分类</th>
+                        <th>编辑</th>
+                        <th>删除</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr class="even">
+                        <td>2</td>
+                        <td>Drywall Screw WDL-M001A.jpg</td>
+                        <td>WDL-M001A Black PH
+                            Bugle head phillips drywall screw  Fine thread
+                            Material: Carbon Steel(C1008 ,C1018,C1022 Hardened),Stainless Steel
+                            Finish:Zinc Plated,Nickle Plated,Brass Plated,Black Oxide,Black&Grey Phosphated,Ruspert</td>
+                        <td>Main Size: 3.5x13~55     #6x1/2’’~2-1/4’’
+                            3.9x13~60     #7x1/2’’~2-1/2’’
+                            4.2x16~75     #8x5/8’’~3’’
+                            4.8x50~150    #10x2’’~6’’
+                            5.5x50~150    #12x2’’~6’’</td>
+                        <td>Drywall Screw</td>
+                        <td><a><img src="../../assets-mg/img/edit.png" border="0"> </a></td>
+                        <td><a><img src="../../assets-mg/img/trash.gif" border="0"> </a></td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="12">产品清单结束</td>
+                    </tr>
+                    </tfoot>
+                </table>
+
                 <ul class="tabsmenu">
                     <li class="active"><a href="#addSlider">添加轮播图</a></li>
                 </ul>
