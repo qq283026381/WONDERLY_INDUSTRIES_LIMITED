@@ -8,10 +8,10 @@
 require "../mysql/mysql.php";
 $mysql = new Mysql();
 $conn = $mysql->connect();
-$queryAboutContent = "select `content` from contact";
+$queryAboutContent = "select `address` from contact";
 $result=$conn->query($queryAboutContent);
 if ($result->num_rows > 0) {
     $row=$result->fetch_array();
-    echo $row['content'];
+    echo $row['address'];
 }
 $conn->close();
