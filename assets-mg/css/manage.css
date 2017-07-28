@@ -685,13 +685,16 @@ input.loginform_submit {
     height: 153px;
 }
 
-#about-content{
+#about-content,#revise-address{
     height: 400px;
     width: 450px;
     resize: none;
     font-size: 15px;
     line-height: 20px;
     white-space: pre-line;
+}
+#revise-address{
+    height: 300px;
 }
 
 #about-page-content{
