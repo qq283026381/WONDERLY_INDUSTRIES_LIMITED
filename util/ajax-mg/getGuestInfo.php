@@ -19,7 +19,7 @@ if ($result) {
         $fax = $row['fax'] ? $row['fax'] : "空";
         $email = $row['email'];
         $message = $row['message'] ? $row['message'] : "空";
-        $id=$row['id'];
+        $id = $row['id'];
         if ($index % 2 === 0) {
             $content .= "<tr class='even'>";
         } else {
@@ -32,8 +32,9 @@ if ($result) {
         $content .= "<td>" . $fax . "</td>";
         $content .= "<td><a href='mailto:" . $email . "'> " . $email . "</a></td>";
         $content .= "<td>" . $message . "</td>";
-        $content .= "<td><a href='../../util/ajax-mg/deleteGuest.php?id=".$id."'><img src='../../assets-mg/img/trash.gif' border='0' /></a></td>";
+        $content .= "<td><a href='../../util/ajax-mg/deleteGuest.php?id=" . $id . "'><img src='../../assets-mg/img/trash.gif' border='0' /></a></td>";
         $content .= "</tr>";
+        $index++;
     }
     echo $content;
 } else {
