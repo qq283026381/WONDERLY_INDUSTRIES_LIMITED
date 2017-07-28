@@ -406,7 +406,7 @@ a.button {
 /*------------------------------------------*/
 .toogle_wrap {
     background-color: #bad7e6;
-    margin: 0;
+    margin: 0 0 20px;
     clear: both;
     -moz-border-radius: 5px;
     -webkit-border-radius: 5px;
