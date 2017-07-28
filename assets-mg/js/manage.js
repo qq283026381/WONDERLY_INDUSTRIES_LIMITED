@@ -2,6 +2,7 @@ window.onload = function () {
     showSliderInfo();
     showAboutContent();
     slidebarMove();
+    showGuestInfo();
 };
 
 function slidebarMove() {
@@ -202,5 +203,16 @@ function showAboutContent() {
         }
     };
     xmlhttp.open("GET", "../../util/ajax-mg/getAboutContent.php", true);
+    xmlhttp.send();
+}
+
+function showGuestInfo() {
+    var xmlhttp = returnXmlhttp();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            document.getElementById("guest-info").innerHTML = xmlhttp.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../../util/ajax-mg/getGuestInfo.php", true);
     xmlhttp.send();
 }
