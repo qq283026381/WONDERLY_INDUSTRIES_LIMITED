@@ -4,6 +4,7 @@ window.onload = function () {
     slidebarMove();
     showGuestInfo();
     showAddress();
+    showContactPic();
 };
 
 function slidebarMove() {
@@ -150,6 +151,46 @@ function checkReviseImg() {
     }
 }
 
+function checkContactImg() {
+    var obj_file = document.getElementById("revise-contact-pic");
+    if (obj_file.value === "") {
+        return false;
+    } else {
+        var maxsize = 200 * 1024;//150KB
+        var errMsg = "上传的附件文件不能超过200KB！！！";
+        var tipMsg = "您的浏览器暂不支持计算上传文件的大小，确保上传文件不要超过200KB，建议使用FireFox、Chrome浏览器。";
+        var browserCfg = {};
+        var ua = window.navigator.userAgent;
+        if (ua.indexOf("MSIE") >= 1) {
+            browserCfg.ie = true;
+        } else if (ua.indexOf("Firefox") >= 1) {
+            browserCfg.firefox = true;
+        } else if (ua.indexOf("Chrome") >= 1) {
+            browserCfg.chrome = true;
+        }
+        var fileSize = 0;
+        if (browserCfg.firefox || browserCfg.chrome) {
+            fileSize = obj_file.files[0].size;
+        } else if (browserCfg.ie) {
+            var obj_img = document.getElementById("tempImg");
+            obj_img.dynsrc = obj_file.value;
+            fileSize = obj_img.filesize;
+        } else {
+            alert(tipMsg);
+            return false;
+        }
+        if (fileSize === -1) {
+            alert(tipMsg);
+            return false;
+        } else if (fileSize > maxsize) {
+            alert(errMsg);
+            return false;
+        } else {
+            return true;
+        }
+    }
+}
+
 function showSliderDetail(img) {
     getSliderDetail(img);
     $("#revise-mask").click(hideBox);
@@ -222,9 +263,19 @@ function showAddress() {
     var xmlhttp = returnXmlhttp();
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-            document.getElementById("revise-address").innerText = xmlhttp.responseText;
+            document.getElementById("revise-address").innerHTML = xmlhttp.responseText;
         }
     };
     xmlhttp.open("GET", "../../util/ajax-mg/getAddress.php", true);
+    xmlhttp.send();
+}
+function showContactPic() {
+    var xmlhttp = returnXmlhttp();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            document.getElementById("contact-pic").innerHTML = xmlhttp.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../../util/ajax-mg/getContactPic.php", true);
     xmlhttp.send();
 }
