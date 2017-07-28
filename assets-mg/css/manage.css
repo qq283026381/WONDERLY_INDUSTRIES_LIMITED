@@ -703,3 +703,7 @@ input.loginform_submit {
     line-height: 30px;
     text-align: left;
 }
+#contact-pic>img{
+    width: 490px;
+    height: 275px;
+}
