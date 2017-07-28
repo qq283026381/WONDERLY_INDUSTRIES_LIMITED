@@ -163,21 +163,18 @@
                     </form>
                 </div>
                 <div id="reviseContactPic" class="tabcontent">
-                    <h3>修改图片</h3>
-                    <div class="form">
-                        <div class="form_row">
-                            <label for="SearchStudentSelectId">原图片：</label>
-                            <input class="form_input" name="" id="SearchStudentSelectId"/>
-                        </div>
+                    <h3>修改图片(490*275)</h3>
+                    <form enctype="multipart/form-data" action="../../util/ajax-mg/reviseContactPic.php" method="post" class="form" onsubmit="return checkContactImg();">
+                        <div id="contact-pic" class="form_row"></div>
                         <div class="form_row">
                             <label for="searchCourseSelectId">新图片：</label>
-                            <input class="form_input" name="" id="searchCourseSelectId"/>
+                            <input type="file" name="revise-contact-pic" id="revise-contact-pic"/>
                         </div>
                         <div class="form_row">
                             <input type="submit" class="form_submit" value="修改"/>
                         </div>
                         <div class="clear"></div>
-                    </div>
+                    </form>
                 </div>
                 <div id="guest-list">
                     <h2>客户列表</h2>
