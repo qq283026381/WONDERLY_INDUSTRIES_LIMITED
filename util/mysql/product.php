@@ -42,7 +42,25 @@ class Product
         $mysql = new Mysql();
         $conn = $mysql->connect();
         $queryAddProduct = "insert into product (`index`,`img`,`category`,`description`,`size`) values('" . $index . "','" . $img . "','" . $category . "','" . $description . "','" . $size . "')";
-        $result=$conn->query($queryAddProduct);
+        $result = $conn->query($queryAddProduct);
+        $conn->close();
+        return $result;
+    }
+
+    function deleteProduct($img)
+    {
+        $mysql = new Mysql();
+        $conn = $mysql->connect();
+        $queryDeleteProduct = "delete from product where `img` = '" . $img . "'";
+        $result=$conn->query($queryDeleteProduct);
+        $conn->close();
+        return $result;
+    }
+    function getCategoryByImg($img){
+        $mysql = new Mysql();
+        $conn = $mysql->connect();
+        $queryCategory = "select `category` from product where `img` = '" . $img . "'";
+        $result=$conn->query($queryCategory);
         $conn->close();
         return $result;
     }
