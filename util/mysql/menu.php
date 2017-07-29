@@ -36,6 +36,15 @@ class Menu
         $conn->close();
         return $result;
     }
+    function getMenuExceptItem($item)
+    {
+        $mysql = new Mysql();
+        $conn = $mysql->connect();
+        $queryMenuByItem = "select `item`,`index` from menu where `item` not like '" . $item . "'";
+        $result = $conn->query($queryMenuByItem);
+        $conn->close();
+        return $result;
+    }
 
     function getSubmenuByParent($parent)
     {
@@ -62,7 +71,27 @@ class Menu
         $mysql = new Mysql();
         $conn = $mysql->connect();
         $queryDeleteMenu = "delete from menu where `item` = '" . $item . "'";
-        $result=$conn->query($queryDeleteMenu);
+        $result = $conn->query($queryDeleteMenu);
+        $conn->close();
+        return $result;
+    }
+
+    function reviseMenu($index, $item,$oldItem)
+    {
+        $mysql = new Mysql();
+        $conn = $mysql->connect();
+        $queryReviseMenu = "update menu set `index`='" . $index . "',`item`='" . $item . "' where `item`='" . $oldItem . "' ";
+        $result = $conn->query($queryReviseMenu);
+        $conn->close();
+        return $result;
+    }
+
+    function addSubmenu($index, $item, $parent)
+    {
+        $mysql = new Mysql();
+        $conn = $mysql->connect();
+        $queryAddSubmenu = "insert into submenu (`index`.`item`.`parent`) VALUES (`" . $index . "`,`" . $item . "`,`" . $parent . "`)";
+        $result = $conn->query($queryAddSubmenu);
         $conn->close();
         return $result;
     }
