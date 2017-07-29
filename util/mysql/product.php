@@ -36,4 +36,14 @@ class Product
         $conn->close();
         return $result;
     }
+
+    function addProduct($index, $category, $description, $size, $img)
+    {
+        $mysql = new Mysql();
+        $conn = $mysql->connect();
+        $queryAddProduct = "insert into product (`index`,`img`,`category`,`description`,`size`) values('" . $index . "','" . $img . "','" . $category . "','" . $description . "','" . $size . "')";
+        $result=$conn->query($queryAddProduct);
+        $conn->close();
+        return $result;
+    }
 }
