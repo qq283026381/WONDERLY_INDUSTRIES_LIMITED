@@ -36,6 +36,14 @@ class Menu
         $conn->close();
         return $result;
     }
+    function getSubmenuByItem($item){
+        $mysql = new Mysql();
+        $conn = $mysql->connect();
+        $querySubmenuByItem = "select `item`,`index` from submenu where `item` = '" . $item . "'";
+        $result = $conn->query($querySubmenuByItem);
+        $conn->close();
+        return $result;
+    }
     function getMenuExceptItem($item)
     {
         $mysql = new Mysql();
@@ -90,7 +98,7 @@ class Menu
     {
         $mysql = new Mysql();
         $conn = $mysql->connect();
-        $queryAddSubmenu = "insert into submenu (`index`.`item`.`parent`) VALUES (`" . $index . "`,`" . $item . "`,`" . $parent . "`)";
+        $queryAddSubmenu = "insert into submenu (`index`,`item`,`parent`) VALUES ('" . $index . "','" . $item . "','" . $parent . "')";
         $result = $conn->query($queryAddSubmenu);
         $conn->close();
         return $result;
