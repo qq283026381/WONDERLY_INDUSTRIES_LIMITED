@@ -116,6 +116,7 @@ function checkImg() {
         return true;
     }
 }
+
 function checkProductImg() {
     var maxsize = 200 * 1024;//150KB
     var errMsg = "上传的附件文件不能超过200KB！！！";
@@ -158,6 +159,45 @@ function checkProductImg() {
 
 function checkReviseImg() {
     var obj_file = document.getElementById("sliderImg");
+    if (obj_file.value === "") {
+        return true;
+    } else {
+        var maxsize = 200 * 1024;//150KB
+        var errMsg = "上传的附件文件不能超过200KB！！！";
+        var tipMsg = "您的浏览器暂不支持计算上传文件的大小，确保上传文件不要超过200KB，建议使用FireFox、Chrome浏览器。";
+        var browserCfg = {};
+        var ua = window.navigator.userAgent;
+        if (ua.indexOf("MSIE") >= 1) {
+            browserCfg.ie = true;
+        } else if (ua.indexOf("Firefox") >= 1) {
+            browserCfg.firefox = true;
+        } else if (ua.indexOf("Chrome") >= 1) {
+            browserCfg.chrome = true;
+        }
+        var fileSize = 0;
+        if (browserCfg.firefox || browserCfg.chrome) {
+            fileSize = obj_file.files[0].size;
+        } else if (browserCfg.ie) {
+            var obj_img = document.getElementById("tempImg");
+            obj_img.dynsrc = obj_file.value;
+            fileSize = obj_img.filesize;
+        } else {
+            alert(tipMsg);
+            return false;
+        }
+        if (fileSize === -1) {
+            alert(tipMsg);
+            return false;
+        } else if (fileSize > maxsize) {
+            alert(errMsg);
+            return false;
+        } else {
+            return true;
+        }
+    }
+}
+function checkReviseProductImg() {
+    var obj_file = document.getElementById("reviseProductImg");
     if (obj_file.value === "") {
         return true;
     } else {
@@ -475,6 +515,18 @@ function getSubmenuByParent() {
     xmlhttp.open("GET", "../../util/ajax-mg/getProductSubmenu.php?parent=" + parent, true);
     xmlhttp.send();
 }
+function getReviseSubmenuByParent() {
+    var parent = document.getElementById("reviseProductMenu").value;
+    var xmlhttp = returnXmlhttp();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            document.getElementById("reviseProductSubmenu").innerHTML = xmlhttp.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../../util/ajax-mg/getProductSubmenu.php?parent=" + parent, true);
+    xmlhttp.send();
+}
+
 function showProduct() {
     var xmlhttp = returnXmlhttp();
     xmlhttp.onreadystatechange = function () {
@@ -482,6 +534,17 @@ function showProduct() {
             document.getElementById("product-list").innerHTML = xmlhttp.responseText;
         }
     };
-    xmlhttp.open("GET", "../../util/ajax-mg/getProduct.php" , true);
+    xmlhttp.open("GET", "../../util/ajax-mg/getProduct.php", true);
+    xmlhttp.send();
+}
+
+function showProductDetail(img) {
+    var xmlhttp = returnXmlhttp();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            document.getElementById("revise-detail").innerHTML = xmlhttp.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../../util/ajax-mg/getProductDetail.php?img=" + img, true);
     xmlhttp.send();
 }
