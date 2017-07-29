@@ -707,3 +707,13 @@ input.loginform_submit {
     width: 490px;
     height: 275px;
 }
+select{
+    -webkit-box-sizing: content-box;
+    -moz-box-sizing: content-box;
+    box-sizing:content-box;
+}
+.warming{
+    display: none;
+    color: red;
+    text-align: center;
+}
