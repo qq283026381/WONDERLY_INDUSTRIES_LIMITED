@@ -372,9 +372,29 @@ function checkReviseMenu() {
             }
         }
     };
-    xmlhttp.open("GET", "../../util/ajax-mg/ifExistMenu.php?item=" + item, true);
+    xmlhttp.open("GET", "../../util/ajax-mg/ifExceptMenu.php?item=" + item, true);
     xmlhttp.send();
 }
+function checkReviseSubmenu() {
+    var item = document.getElementById("reviseCategorySubmenu").value;
+    var warming = document.getElementById("reviseSubmenuWarning");
+    var menuSubmit = document.getElementById("reviseSubmenuBtn");
+    var xmlhttp = returnXmlhttp();
+    xmlhttp.onreadystatechange = function menuState() {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            if (xmlhttp.responseText === "true") {
+                warming.style.display = "block";
+                menuSubmit.disabled = "disabled";
+            } else {
+                warming.style.display = "none";
+                menuSubmit.disabled = "";
+            }
+        }
+    };
+    xmlhttp.open("GET", "../../util/ajax-mg/ifExceptSubmenu.php?item=" + item, true);
+    xmlhttp.send();
+}
+
 
 function showMenuDetail(item) {
     var xmlhttp = returnXmlhttp();
@@ -384,5 +404,15 @@ function showMenuDetail(item) {
         }
     };
     xmlhttp.open("GET", "../../util/ajax-mg/getMenuDetail.php?item=" + item, true);
+    xmlhttp.send();
+}
+function showSubmenuDetail(item) {
+    var xmlhttp = returnXmlhttp();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            document.getElementById("revise-detail").innerHTML = xmlhttp.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../../util/ajax-mg/getSubmenuDetail.php?item=" + item, true);
     xmlhttp.send();
 }
