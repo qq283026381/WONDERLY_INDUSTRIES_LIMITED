@@ -21,7 +21,10 @@ if ($result->num_rows > 0) {
     $content .= "<div class='form_row'>";
     $content .= "<label for='reviseCategoryMenu'>分类：</label>";
     $content .= "<input oninput=\"checkReviseMenu();\" value='" . $row['item'] . "' required=\"\" class=\"form_input\" autocomplete=\"off\" name=\"reviseCategoryMenu\" id=\"reviseCategoryMenu\">";
+    $content .= "<input type='hidden' name='oldItem' value='" . $row['item'] . "' />";
     $content .= "</div>";
-    $content .= "<div class=\"form_row\"><input type=\"submit\" class=\"form_submit\" value=\"更改\"/></div><div class=\"clear\"></div></form>";
+    $content .= "<div class='form_row'>";
+    $content .= "<p id='reviseMenuWarning' class='warming'>该分类已经存在！</p>";
+    $content .= "</div><div class=\"form_row\"><input type=\"submit\" id='reviseMenuBtn' class=\"form_submit\" value=\"更改\"/></div><div class=\"clear\"></div></form>";
 }
 echo $content;
