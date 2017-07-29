@@ -13,7 +13,7 @@ class Admin
      */
     public function __construct()
     {
-        require "mysql.php";
+        require_once "mysql.php";
     }
 
     public function checkAdmin($name, $password)

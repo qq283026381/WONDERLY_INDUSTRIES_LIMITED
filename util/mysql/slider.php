@@ -14,7 +14,7 @@ class Slider
      */
     public function __construct()
     {
-        require "mysql.php";
+        require_once "mysql.php";
     }
 
     function addSlider($index, $img)

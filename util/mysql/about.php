@@ -14,7 +14,7 @@ class About
      */
     public function __construct()
     {
-        require "mysql.php";
+        require_once "mysql.php";
     }
 
     function getAboutContent()
