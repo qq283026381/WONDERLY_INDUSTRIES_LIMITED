@@ -25,7 +25,7 @@ while ($menuItem = $menuResult->fetch_array()) {
             $content .= "<td>" . $index . "</td>";
             $content .= "<td>" . $item . "</td>";
             $content .= "<td>" . $parent . "</td>";
-            $content .= "<td><a><img src=\"../../assets-mg/img/edit.png\" border=\"0\"> </a></td>";
+            $content .= "<td><a><img onclick='showBox();showSubmenuDetail(\"" . $item . "\");' src=\"../../assets-mg/img/edit.png\" border=\"0\"> </a></td>";
             $content .= "<td><a href='../../util/ajax-mg/deleteSubmenu.php?item=" . $item . "'><img src=\"../../assets-mg/img/trash.gif\" border=\"0\"> </a></td>";
             $content .= "</tr>";
             $i++;
