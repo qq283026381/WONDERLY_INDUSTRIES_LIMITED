@@ -15,9 +15,8 @@
     <script>
         var $ = jQuery.noConflict();
         $(function () {
-            $('#courseMenu').tabify();
-            $('#studentMenu').tabify();
-            $('#courseSelectMenu').tabify();
+            $('#categoryTabMenu').tabify();
+            $('#contactTabMenu').tabify();
             $('#submenu').tabify();
             $('#sideMenu').tabify();
 
@@ -117,10 +116,11 @@
                     </thead>
                     <tbody id="menu-list"></tbody>
                 </table>
-                <ul class="tabsmenu">
-                    <li class="active"><a href="#addCatagory">添加分类</a></li>
+                <ul id="categoryTabMenu" class="tabsmenu">
+                    <li class="active"><a href="#addMenu">添加分类</a></li>
+                    <li><a href="#addSubmenu">添加子类</a></li>
                 </ul>
-                <div id="addCatagory" class="tabcontent">
+                <div id="addMenu" class="tabcontent">
                     <h3>新增分类</h3>
                     <form class="form" action="../../util/ajax-mg/addMenu.php"
                           method="post">
@@ -132,11 +132,39 @@
                         </div>
                         <div class="form_row">
                             <label for="categoryMenu">分类:</label>
-                            <input oninput="checkMenu();" required class="form_input" autocomplete="off" name="categoryMenu" id="categoryMenu"/>
+                            <input oninput="checkMenu();" required class="form_input" autocomplete="off"
+                                   name="categoryMenu" id="categoryMenu"/>
                             <p id="menuWarming" class="warming">该分类名已经存在。</p>
                         </div>
                         <div class="form_row">
                             <input type="submit" id="menuSubmit" class="form_submit" value="添加"/>
+                        </div>
+                        <div class="clear"></div>
+                    </form>
+                </div>
+                <div id="addSubmenu" class="tabcontent">
+                    <h3>新增子类</h3>
+                    <form class="form" action="../../util/ajax-mg/addSubmenu.php"
+                          method="post">
+                        <div class="form_row">
+                            <label for="submenuIndex">优先级:</label>
+                            <input type="number" min="1" autocomplete="off" required placeholder="输入 1 以上的整数"
+                                   class="form_input" name="submenuIndex" id="submenuIndex"/>
+                            <span class="warming"></span>
+                        </div>
+                        <div class="form_row">
+                            <label for="categorySubmenu">子类:</label>
+                            <input oninput="checkSubmenu();" required class="form_input" autocomplete="off" name="categorySubmenu" id="categorySubmenu"/>
+                            <p id="submenuWarming" class="warming">该子类名已经存在！</p>
+                        </div>
+                        <div class="form_row">
+                            <label for="categoryParent">父类:</label>
+                            <select required class="form_input" name="categoryParent" id="categoryParent">
+                                <option value="SCREWS">SCREWS</option>
+                            </select>
+                        </div>
+                        <div class="form_row">
+                            <input id="submenuSubmit" type="submit" class="form_submit" value="添加"/>
                         </div>
                         <div class="clear"></div>
                     </form>
@@ -163,44 +191,6 @@
                     </thead>
                     <tbody id="submenu-list"></tbody>
                 </table>
-                <ul class="tabsmenu">
-                    <li class="active"><a href="#addCatagory">添加子类</a></li>
-                </ul>
-                <div id="addCatagory" class="tabcontent">
-                    <h3>新增子类</h3>
-                    <form class="form" action="../../util/ajax-mg/addSlider.php"
-                          method="post" onsubmit="return checkImg();">
-                        <div class="form_row">
-                            <label for="submenuIndex">优先级:</label>
-                            <input type="number" min="1" autocomplete="off" required placeholder="输入 1 以上的整数"
-                                   class="form_input" name="submenuIndex" id="submenuIndex"/>
-                            <span class="warming"></span>
-                        </div>
-                        <div class="form_row">
-                            <label for="categorySubmenu">子类:</label>
-                            <input required class="form_input" autocomplete="off" name="categorySubmenu" id="categorySubmenu"/>
-                        </div>
-                        <div class="form_row">
-                            <label for="categoryParent">父类:</label>
-                            <select required class="form_input" name="categoryParent" id="categoryParent">
-                                <option value="SCREWS">SCREWS</option>
-                            </select>
-                        </div>
-                        <div class="form_row">
-                            <input type="submit" class="form_submit" value="添加"/>
-                        </div>
-                        <div class="clear"></div>
-                    </form>
-                </div>
-                <div class="toogle_wrap">
-                    <div class="trigger"><a href="#">Tips</a></div>
-                    <div class="toggle_container">
-                        <p>
-                            <span class="redStar">*</span> 务必先添加分类再添加子类
-                        </p>
-                    </div>
-                </div>
-
             </div>
             <div class="right_content" id="productManage">
                 <h2>产品清单</h2>
@@ -221,14 +211,16 @@
                         <td>2</td>
                         <td>Drywall Screw WDL-M001A.jpg</td>
                         <td>WDL-M001A Black PH
-                            Bugle head phillips drywall screw  Fine thread
+                            Bugle head phillips drywall screw Fine thread
                             Material: Carbon Steel(C1008 ,C1018,C1022 Hardened),Stainless Steel
-                            Finish:Zinc Plated,Nickle Plated,Brass Plated,Black Oxide,Black&Grey Phosphated,Ruspert</td>
-                        <td>Main Size: 3.5x13~55     #6x1/2’’~2-1/4’’
-                            3.9x13~60     #7x1/2’’~2-1/2’’
-                            4.2x16~75     #8x5/8’’~3’’
-                            4.8x50~150    #10x2’’~6’’
-                            5.5x50~150    #12x2’’~6’’</td>
+                            Finish:Zinc Plated,Nickle Plated,Brass Plated,Black Oxide,Black&Grey Phosphated,Ruspert
+                        </td>
+                        <td>Main Size: 3.5x13~55 #6x1/2’’~2-1/4’’
+                            3.9x13~60 #7x1/2’’~2-1/2’’
+                            4.2x16~75 #8x5/8’’~3’’
+                            4.8x50~150 #10x2’’~6’’
+                            5.5x50~150 #12x2’’~6’’
+                        </td>
                         <td>Drywall Screw</td>
                         <td><a><img src="../../assets-mg/img/edit.png" border="0"> </a></td>
                         <td><a><img src="../../assets-mg/img/trash.gif" border="0"> </a></td>
@@ -323,8 +315,7 @@
                 </div>
             </div>
             <div class="right_content" id="contactManage">
-
-                <ul id="courseSelectMenu" class="tabsmenu">
+                <ul id="contactTabMenu" class="tabsmenu">
                     <li class="active"><a href="#reviseAddress">修改地址</a></li>
                     <li><a href="#reviseContactPic">修改图片</a></li>
                 </ul>
@@ -344,7 +335,8 @@
                 </div>
                 <div id="reviseContactPic" class="tabcontent">
                     <h3>修改图片(490*275)</h3>
-                    <form enctype="multipart/form-data" action="../../util/ajax-mg/reviseContactPic.php" method="post" class="form" onsubmit="return checkContactImg();">
+                    <form enctype="multipart/form-data" action="../../util/ajax-mg/reviseContactPic.php" method="post"
+                          class="form" onsubmit="return checkContactImg();">
                         <div id="contact-pic" class="form_row"></div>
                         <div class="form_row">
                             <label for="searchCourseSelectId">新图片：</label>
