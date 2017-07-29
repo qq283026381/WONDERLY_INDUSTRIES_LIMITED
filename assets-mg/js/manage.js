@@ -5,13 +5,16 @@ window.onload = function () {
     showGuestInfo();    //获取客户存留信息
     showAddress();      //获取联系方式内容
     showContactPic();   //获取联系我们的图片
-    showMenuSubmenu();  //获取产品菜单和子菜单
+    showMenu();         //获取产品菜单
+    showSubmenu();      //获取产品子菜单
+    getCategory();
 };
 
 function slidebarMove() {
     function $(id) {
         return document.getElementById(id);
     }
+
     function scroll() {
         if (window.pageYOffset !== null)  //  ie9+ 和其他浏览器
         {
@@ -33,18 +36,19 @@ function slidebarMove() {
             top: document.body.scrollTop
         }
     }
+
     var pic = $("sidebar");
     var leader = 0;
     var target = 0;
     var timer = null;  // 定时器
     var top = pic.offsetTop;  // 50
-    window.onscroll = function() {
+    window.onscroll = function () {
         clearInterval(timer);
         target = scroll().top + top;  // 把最新的 scrolltop 给  target
-        timer = setInterval(function() {
+        timer = setInterval(function () {
             leader = leader + (target - leader ) / 10;
             pic.style.top = leader + 'px';
-        },30)
+        }, 30)
     }
 }
 
@@ -192,8 +196,7 @@ function checkContactImg() {
     }
 }
 
-function showSliderDetail(img) {  //修改轮播图信息时调用的方法
-    getSliderDetail(img);  //获取名为img的轮播图的信息
+function pop_ups() {
     $("#revise-mask").click(hideBox);  //弹窗背景绑定隐藏方法
     $("#close-box").mouseenter(function () {     //当鼠标移入修改框的关闭按钮时，更改关闭图片
         $(this).fadeOut("fast", function () {
@@ -219,21 +222,21 @@ function hideBox() {
     $("#revise-box").fadeOut(200);
     $("#revise-mask").fadeOut(200);
 }
-
 function showBox() {
     $("#revise-mask").fadeIn(500, function () {
         $("#revise-box").fadeIn(300);
     });
+    pop_ups();
 }
 
 function getSliderDetail(img) {
     var xmlhttp = returnXmlhttp();
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-            document.getElementById("revise-form").innerHTML = xmlhttp.responseText;
+            document.getElementById("revise-detail").innerHTML = xmlhttp.responseText;
         }
     };
-    xmlhttp.open("GET", "../../util/ajax-mg/getSliderDetail.php?img="+img, true);
+    xmlhttp.open("GET", "../../util/ajax-mg/getSliderDetail.php?img=" + img, true);
     xmlhttp.send();
 }
 
@@ -270,6 +273,7 @@ function showAddress() {
     xmlhttp.open("GET", "../../util/ajax-mg/getAddress.php", true);
     xmlhttp.send();
 }
+
 function showContactPic() {
     var xmlhttp = returnXmlhttp();
     xmlhttp.onreadystatechange = function () {
@@ -281,7 +285,7 @@ function showContactPic() {
     xmlhttp.send();
 }
 
-function showMenuSubmenu() {
+function showMenu() {
     var xmlhttp = returnXmlhttp();
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
@@ -289,5 +293,58 @@ function showMenuSubmenu() {
         }
     };
     xmlhttp.open("GET", "../../util/ajax-mg/getMenu.php", true);
+    xmlhttp.send();
+}
+
+function showSubmenu() {
+    var xmlhttp = returnXmlhttp();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            document.getElementById("submenu-list").innerHTML = xmlhttp.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../../util/ajax-mg/getSubmenu.php", true);
+    xmlhttp.send();
+}
+
+function getCategory() {
+    var xmlhttp = returnXmlhttp();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            document.getElementById("categoryParent").innerHTML = xmlhttp.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../../util/ajax-mg/getCategory.php", true);
+    xmlhttp.send();
+}
+
+function checkMenu() {
+    var item = document.getElementById("categoryMenu").value;
+    var warming = document.getElementById("menuWarming");
+    var menuSubmit = document.getElementById("menuSubmit");
+    var xmlhttp = returnXmlhttp();
+    xmlhttp.onreadystatechange = function menuState() {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            if (xmlhttp.responseText === "true") {
+                warming.style.display = "block";
+                menuSubmit.disabled = "disabled";
+            } else {
+                warming.style.display = "none";
+                menuSubmit.disabled = "";
+            }
+        }
+    };
+    xmlhttp.open("GET", "../../util/ajax-mg/ifExistMenu.php?item=" + item, true);
+    xmlhttp.send();
+}
+
+function showMenuDetail(item) {
+    var xmlhttp = returnXmlhttp();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            document.getElementById("revise-detail").innerHTML = xmlhttp.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../../util/ajax-mg/getMenuDetail.php?item=" + item, true);
     xmlhttp.send();
 }
