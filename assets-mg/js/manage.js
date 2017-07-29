@@ -8,6 +8,7 @@ window.onload = function () {
     showMenu();         //获取产品菜单
     showSubmenu();      //获取产品子菜单
     getCategory();
+    showProduct();
 };
 
 function slidebarMove() {
@@ -222,6 +223,7 @@ function hideBox() {
     $("#revise-box").fadeOut(200);
     $("#revise-mask").fadeOut(200);
 }
+
 function showBox() {
     $("#revise-mask").fadeIn(500, function () {
         $("#revise-box").fadeIn(300);
@@ -312,6 +314,8 @@ function getCategory() {
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
             document.getElementById("categoryParent").innerHTML = xmlhttp.responseText;
+            document.getElementById("productMenu").innerHTML = xmlhttp.responseText;
+            getSubmenuByParent();
         }
     };
     xmlhttp.open("GET", "../../util/ajax-mg/getCategory.php", true);
@@ -337,6 +341,7 @@ function checkMenu() {
     xmlhttp.open("GET", "../../util/ajax-mg/ifExistMenu.php?item=" + item, true);
     xmlhttp.send();
 }
+
 function checkSubmenu() {
     var item = document.getElementById("categorySubmenu").value;
     var warming = document.getElementById("submenuWarming");
@@ -356,6 +361,7 @@ function checkSubmenu() {
     xmlhttp.open("GET", "../../util/ajax-mg/ifExistSubmenu.php?item=" + item, true);
     xmlhttp.send();
 }
+
 function checkReviseMenu() {
     var item = document.getElementById("reviseCategoryMenu").value;
     var warming = document.getElementById("reviseMenuWarning");
@@ -375,6 +381,7 @@ function checkReviseMenu() {
     xmlhttp.open("GET", "../../util/ajax-mg/ifExceptMenu.php?item=" + item, true);
     xmlhttp.send();
 }
+
 function checkReviseSubmenu() {
     var item = document.getElementById("reviseCategorySubmenu").value;
     var warming = document.getElementById("reviseSubmenuWarning");
@@ -406,6 +413,7 @@ function showMenuDetail(item) {
     xmlhttp.open("GET", "../../util/ajax-mg/getMenuDetail.php?item=" + item, true);
     xmlhttp.send();
 }
+
 function showSubmenuDetail(item) {
     var xmlhttp = returnXmlhttp();
     xmlhttp.onreadystatechange = function () {
@@ -414,5 +422,27 @@ function showSubmenuDetail(item) {
         }
     };
     xmlhttp.open("GET", "../../util/ajax-mg/getSubmenuDetail.php?item=" + item, true);
+    xmlhttp.send();
+}
+
+function getSubmenuByParent() {
+    var parent = document.getElementById("productMenu").value;
+    var xmlhttp = returnXmlhttp();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            document.getElementById("productSubmenu").innerHTML = xmlhttp.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../../util/ajax-mg/getProductSubmenu.php?parent=" + parent, true);
+    xmlhttp.send();
+}
+function showProduct() {
+    var xmlhttp = returnXmlhttp();
+    xmlhttp.onreadystatechange = function () {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            document.getElementById("product-list").innerHTML = xmlhttp.responseText;
+        }
+    };
+    xmlhttp.open("GET", "../../util/ajax-mg/getProduct.php" , true);
     xmlhttp.send();
 }
