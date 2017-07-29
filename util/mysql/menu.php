@@ -84,6 +84,16 @@ class Menu
         return $result;
     }
 
+    function deleteSubmenu($item)
+    {
+        $mysql = new Mysql();
+        $conn = $mysql->connect();
+        $queryDeleteSubmenu = "delete from submenu where `item` = '" . $item . "'";
+        $result = $conn->query($queryDeleteSubmenu);
+        $conn->close();
+        return $result;
+    }
+
     function reviseMenu($index, $item,$oldItem)
     {
         $mysql = new Mysql();
