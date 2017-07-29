@@ -111,7 +111,6 @@
                     <tr>
                         <th>优先级</th>
                         <th>分类名</th>
-                        <th>父级栏</th>
                         <th>编辑</th>
                         <th>删除</th>
                     </tr>
@@ -123,32 +122,70 @@
                 </ul>
                 <div id="addCatagory" class="tabcontent">
                     <h3>新增分类</h3>
-                    <form class="form" action="../../util/ajax-mg/addSlider.php"
-                          method="post" onsubmit="return checkImg();">
+                    <form class="form" action="../../util/ajax-mg/addMenu.php"
+                          method="post">
                         <div class="form_row">
-                            <label for="categoryIndex">优先级:</label>
+                            <label for="menuIndex">优先级:</label>
                             <input type="number" min="1" autocomplete="off" required placeholder="输入 1 以上的整数"
-                                   class="form_input" name="categoryIndex" id="categoryIndex"/>
+                                   class="form_input" name="menuIndex" id="menuIndex"/>
                             <span class="warming"></span>
                         </div>
                         <div class="form_row">
-                            <label for="categorySubmenu">分类:</label>
-                            <input class="form_input" list="submenuList" name="categorySubmenu" id="categorySubmenu"/>
+                            <label for="categoryMenu">分类:</label>
+                            <input oninput="checkMenu();" required class="form_input" autocomplete="off" name="categoryMenu" id="categoryMenu"/>
+                            <p id="menuWarming" class="warming">该分类名已经存在。</p>
                         </div>
-                        <datalist id="submenuList">
-                            <option value="11"></option>
-                            <option value="22"></option>
-                            <option value="33"></option>
-                        </datalist>
                         <div class="form_row">
-                            <label for="categoryMenu">父类:</label>
-                            <input class="form_input" value="无" list="menuList" name="categoryMenu" id="categoryMenu"/>
+                            <input type="submit" id="menuSubmit" class="form_submit" value="添加"/>
                         </div>
-                        <datalist id="menuList">
-                            <option value="1"></option>
-                            <option value="2"></option>
-                            <option value="3"></option>
-                        </datalist>
+                        <div class="clear"></div>
+                    </form>
+                </div>
+                <div class="toogle_wrap">
+                    <div class="trigger"><a href="#">Tips</a></div>
+                    <div class="toggle_container">
+                        <p>
+                            <span class="redStar">*</span> 务必先添加分类再添加子类
+                        </p>
+                    </div>
+                </div>
+
+                <h2>子类清单</h2>
+                <table id="category-table" class="rounded-corner">
+                    <thead>
+                    <tr>
+                        <th>优先级</th>
+                        <th>子类名</th>
+                        <th>父级栏</th>
+                        <th>编辑</th>
+                        <th>删除</th>
+                    </tr>
+                    </thead>
+                    <tbody id="submenu-list"></tbody>
+                </table>
+                <ul class="tabsmenu">
+                    <li class="active"><a href="#addCatagory">添加子类</a></li>
+                </ul>
+                <div id="addCatagory" class="tabcontent">
+                    <h3>新增子类</h3>
+                    <form class="form" action="../../util/ajax-mg/addSlider.php"
+                          method="post" onsubmit="return checkImg();">
+                        <div class="form_row">
+                            <label for="submenuIndex">优先级:</label>
+                            <input type="number" min="1" autocomplete="off" required placeholder="输入 1 以上的整数"
+                                   class="form_input" name="submenuIndex" id="submenuIndex"/>
+                            <span class="warming"></span>
+                        </div>
+                        <div class="form_row">
+                            <label for="categorySubmenu">子类:</label>
+                            <input required class="form_input" autocomplete="off" name="categorySubmenu" id="categorySubmenu"/>
+                        </div>
+                        <div class="form_row">
+                            <label for="categoryParent">父类:</label>
+                            <select required class="form_input" name="categoryParent" id="categoryParent">
+                                <option value="SCREWS">SCREWS</option>
+                            </select>
+                        </div>
                         <div class="form_row">
                             <input type="submit" class="form_submit" value="添加"/>
                         </div>
@@ -159,13 +196,11 @@
                     <div class="trigger"><a href="#">Tips</a></div>
                     <div class="toggle_container">
                         <p>
-                            <span class="redStar">*</span> 务必先添加分类再添加产品
-                        </p>
-                        <p>
-                            <span class="redStar">*</span> 父类默认为无
+                            <span class="redStar">*</span> 务必先添加分类再添加子类
                         </p>
                     </div>
                 </div>
+
             </div>
             <div class="right_content" id="productManage">
                 <h2>产品清单</h2>
@@ -345,7 +380,8 @@
                     </table>
                 </div>
             </div>
-        </div><!-- end of right content-->
+        </div>
+        <!-- end of right content-->
 
 
         <div class="sidebar" id="sidebar">
@@ -360,8 +396,6 @@
                 <li><a href="../../" target="_blank">主网页</a></li>
             </ul>
         </div>
-
-
         <div class="clear"></div>
     </div> <!--end of center_content-->
     <div class="footer">
@@ -376,8 +410,6 @@
             </div>
         </div>
         <div id="revise-detail" class="revise-detail">
-            <form id="revise-form" class="form" action="../../util/ajax-mg/reviseSlider.php"
-                  enctype="multipart/form-data" method="post" onsubmit="return checkReviseImg();"></form>
         </div>
     </div>
 </div>
