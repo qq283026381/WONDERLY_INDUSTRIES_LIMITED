@@ -62,4 +62,9 @@ class File
             unlink($url . $img);
         }
     }
+    function checkUrl($url){
+        if(!file_exists($url)){
+            mkdir($url);
+        }
+    }
 }
