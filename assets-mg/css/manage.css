@@ -685,7 +685,7 @@ input.loginform_submit {
     height: 153px;
 }
 
-#about-content,#revise-address{
+#about-content, #revise-address, #productDescription, #productSize {
     height: 400px;
     width: 450px;
     resize: none;
@@ -693,26 +693,34 @@ input.loginform_submit {
     line-height: 20px;
     white-space: pre-line;
 }
-#revise-address{
+
+#revise-address {
     height: 300px;
 }
+#productDescription, #productSize{
+    width: 300px;
+    height: 200px;
+}
 
-#about-page-content{
+#about-page-content {
     white-space: pre-line;
     font-size: 15px;
     line-height: 30px;
     text-align: left;
 }
-#contact-pic>img{
+
+#contact-pic > img {
     width: 490px;
     height: 275px;
 }
-select{
+
+select {
     -webkit-box-sizing: content-box;
     -moz-box-sizing: content-box;
-    box-sizing:content-box;
+    box-sizing: content-box;
 }
-.warming{
+
+.warming {
     font-style: normal;
     font-weight: normal;
     padding: 0;
