@@ -644,7 +644,7 @@ input.loginform_submit {
     position: fixed;
     width: 600px;
     background-color: #fff;
-    margin: 200px auto;
+    margin: 10px auto;
     box-shadow: 2px 2px 2px rgba(189, 154, 255, 0.5);
     border-radius: 10px;
     display: none;
@@ -685,7 +685,7 @@ input.loginform_submit {
     height: 153px;
 }
 
-#about-content, #revise-address, #productDescription, #productSize {
+#about-content, #revise-address, #productDescription, #productSize, .product-textarea {
     height: 400px;
     width: 450px;
     resize: none;
@@ -697,7 +697,8 @@ input.loginform_submit {
 #revise-address {
     height: 300px;
 }
-#productDescription, #productSize{
+
+#productDescription, #productSize, .product-textarea {
     width: 300px;
     height: 200px;
 }
