@@ -198,8 +198,8 @@
                 </ul>
                 <div id="addProduct" class="tabcontent">
                     <h3>选择产品</h3>
-                    <form  class="form" action="../../util/ajax-mg/addProduct.php" enctype="multipart/form-data"
-                          method="post" onsubmit="return checkImg();">
+                    <form class="form" action="../../util/ajax-mg/addProduct.php" enctype="multipart/form-data"
+                          method="post" onsubmit="return checkProductImg();">
                         <div class="form_row">
                             <label for="productIndex">优先级:</label>
                             <input type="number" min="1" autocomplete="off" required placeholder="输入 1 以上的整数"
@@ -235,16 +235,7 @@
                     <div class="trigger"><a href="#">Tips</a></div>
                     <div class="toggle_container">
                         <p>
-                            <span class="redStar">*</span> 轮播图尺寸950*475
-                        </p>
-                        <p>
-                            <span class="redStar">*</span> 轮播图只能上传jpg文件
-                        </p>
-                        <p>
-                            <span class="redStar">*</span> 优先级只能设置正整数
-                        </p>
-                        <p>
-                            <span class="redStar">*</span> 优先级可重复
+                            <span class="redStar">*</span> 图片不要重复选取
                         </p>
                     </div>
                 </div>
@@ -260,16 +251,7 @@
                         <th>删除</th>
                     </tr>
                     </thead>
-                    <tbody id="product-list">
-                    <tr class="even">
-                        <td>2</td>
-                        <td><a onclick="showBox();">Drywall Screw WDL-M001A.jpg</a></td>
-                        <td><img src="../../assets/imgs/Drywall%20screw/Drywall%20Screw%20WDL-M001A.jpg" alt="">
-                        </td>
-                        <td><a><img src="../../assets-mg/img/edit.png" border="0"> </a></td>
-                        <td><a><img src="../../assets-mg/img/trash.gif" border="0"> </a></td>
-                    </tr>
-                    </tbody>
+                    <tbody id="product-list"></tbody>
                     <tfoot>
                     <tr>
                         <td colspan="12">点击图片名显示详情</td>
