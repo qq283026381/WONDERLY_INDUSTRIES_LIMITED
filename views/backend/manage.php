@@ -193,62 +193,37 @@
                 </table>
             </div>
             <div class="right_content" id="productManage">
-                <h2>产品清单</h2>
-                <table id="product-table" class="rounded-corner">
-                    <thead>
-                    <tr>
-                        <th>优先级</th>
-                        <th>图片</th>
-                        <th>描述</th>
-                        <th>规格</th>
-                        <th>分类</th>
-                        <th>编辑</th>
-                        <th>删除</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr class="even">
-                        <td>2</td>
-                        <td>Drywall Screw WDL-M001A.jpg</td>
-                        <td>WDL-M001A Black PH
-                            Bugle head phillips drywall screw Fine thread
-                            Material: Carbon Steel(C1008 ,C1018,C1022 Hardened),Stainless Steel
-                            Finish:Zinc Plated,Nickle Plated,Brass Plated,Black Oxide,Black&Grey Phosphated,Ruspert
-                        </td>
-                        <td>Main Size: 3.5x13~55 #6x1/2’’~2-1/4’’
-                            3.9x13~60 #7x1/2’’~2-1/2’’
-                            4.2x16~75 #8x5/8’’~3’’
-                            4.8x50~150 #10x2’’~6’’
-                            5.5x50~150 #12x2’’~6’’
-                        </td>
-                        <td>Drywall Screw</td>
-                        <td><a><img src="../../assets-mg/img/edit.png" border="0"> </a></td>
-                        <td><a><img src="../../assets-mg/img/trash.gif" border="0"> </a></td>
-                    </tr>
-                    </tbody>
-                    <tfoot>
-                    <tr>
-                        <td colspan="12">产品清单结束</td>
-                    </tr>
-                    </tfoot>
-                </table>
-
                 <ul class="tabsmenu">
-                    <li class="active"><a href="#addSlider">添加轮播图</a></li>
+                    <li class="active"><a href="#addProduct">添加产品</a></li>
                 </ul>
-                <div id="addSlider" class="tabcontent">
-                    <h3>选择轮播图</h3>
-                    <form class="form" action="../../util/ajax-mg/addSlider.php" enctype="multipart/form-data"
+                <div id="addProduct" class="tabcontent">
+                    <h3>选择产品</h3>
+                    <form  class="form" action="../../util/ajax-mg/addProduct.php" enctype="multipart/form-data"
                           method="post" onsubmit="return checkImg();">
                         <div class="form_row">
-                            <label for="sliderImg">优先级:</label>
+                            <label for="productIndex">优先级:</label>
                             <input type="number" min="1" autocomplete="off" required placeholder="输入 1 以上的整数"
-                                   class="form_input" name="sliderIndex" id="sliderIndex"/>
-                            <span class="warming"></span>
+                                   class="form_input" name="productIndex" id="productIndex"/>
                         </div>
                         <div class="form_row">
-                            <label for="sliderImg">图片:</label>
-                            <input type="file" name="newSliderImg" id="sliderImg"/>
+                            <label for="productMenu">分类：</label>
+                            <select onchange="getSubmenuByParent();" required class="form_input" name="productMenu" id="productMenu"></select>
+                        </div>
+                        <div class="form_row">
+                            <label for="productSubmenu">子类：</label>
+                            <select class="form_input" name="productSubmenu" id="productSubmenu"></select>
+                        </div>
+                        <div class="form_row">
+                            <label for="productDescription">描述：</label>
+                            <textarea class="form_input" name="productDescription" id="productDescription"></textarea>
+                        </div>
+                        <div class="form_row">
+                            <label for="productSize">规格：</label>
+                            <textarea class="form_input" name="productSize" id="productSize"></textarea>
+                        </div>
+                        <div class="form_row">
+                            <label for="productImg">图片:</label>
+                            <input type="file" name="productImg" id="productImg"/>
                         </div>
                         <div class="form_row">
                             <input type="submit" class="form_submit" value="添加"/>
@@ -273,6 +248,34 @@
                         </p>
                     </div>
                 </div>
+                <h2>产品清单</h2>
+                <table id="product-table" class="rounded-corner">
+                    <thead>
+                    <tr>
+                        <th>优先级</th>
+                        <th>子类</th>
+                        <th>图片</th>
+                        <th>预览</th>
+                        <th>编辑</th>
+                        <th>删除</th>
+                    </tr>
+                    </thead>
+                    <tbody id="product-list">
+                    <tr class="even">
+                        <td>2</td>
+                        <td><a onclick="showBox();">Drywall Screw WDL-M001A.jpg</a></td>
+                        <td><img src="../../assets/imgs/Drywall%20screw/Drywall%20Screw%20WDL-M001A.jpg" alt="">
+                        </td>
+                        <td><a><img src="../../assets-mg/img/edit.png" border="0"> </a></td>
+                        <td><a><img src="../../assets-mg/img/trash.gif" border="0"> </a></td>
+                    </tr>
+                    </tbody>
+                    <tfoot>
+                    <tr>
+                        <td colspan="12">点击图片名显示详情</td>
+                    </tr>
+                    </tfoot>
+                </table>
             </div>
             <div class="right_content" id="aboutManage">
                 <h2>页面内容</h2>
