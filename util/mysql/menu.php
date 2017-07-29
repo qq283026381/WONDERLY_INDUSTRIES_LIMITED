@@ -36,20 +36,33 @@ class Menu
         $conn->close();
         return $result;
     }
-    function getSubmenuByItem($item){
+
+    function getSubmenuByItem($item)
+    {
         $mysql = new Mysql();
         $conn = $mysql->connect();
-        $querySubmenuByItem = "select `item`,`index` from submenu where `item` = '" . $item . "'";
+        $querySubmenuByItem = "select `item`,`index`,`parent` from submenu where `item` = '" . $item . "'";
         $result = $conn->query($querySubmenuByItem);
         $conn->close();
         return $result;
     }
+
     function getMenuExceptItem($item)
     {
         $mysql = new Mysql();
         $conn = $mysql->connect();
-        $queryMenuByItem = "select `item`,`index` from menu where `item` not like '" . $item . "'";
+        $queryMenuByItem = "select `item` from menu where `item` not like '" . $item . "'";
         $result = $conn->query($queryMenuByItem);
+        $conn->close();
+        return $result;
+    }
+
+    function getSubmenuExceptItem($item)
+    {
+        $mysql = new Mysql();
+        $conn = $mysql->connect();
+        $querySubmenuByItem = "select `item` from submenu where `item` not like '" . $item . "'";
+        $result = $conn->query($querySubmenuByItem);
         $conn->close();
         return $result;
     }
@@ -94,12 +107,22 @@ class Menu
         return $result;
     }
 
-    function reviseMenu($index, $item,$oldItem)
+    function reviseMenu($index, $item, $oldItem)
     {
         $mysql = new Mysql();
         $conn = $mysql->connect();
         $queryReviseMenu = "update menu set `index`='" . $index . "',`item`='" . $item . "' where `item`='" . $oldItem . "' ";
         $result = $conn->query($queryReviseMenu);
+        $conn->close();
+        return $result;
+    }
+
+    function reviseSubmenu($index, $item, $oldItem, $parent)
+    {
+        $mysql = new Mysql();
+        $conn = $mysql->connect();
+        $queryReviseSubmenu = "update submenu set `index`='" . $index . "',`item`='" . $item . "',`parent`='" . $parent . "' where `item`='" . $oldItem . "' ";
+        $result = $conn->query($queryReviseSubmenu);
         $conn->close();
         return $result;
     }
