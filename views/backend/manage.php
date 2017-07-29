@@ -37,8 +37,8 @@
 <div id="panelwrap">
     <div class="header">
         <div class="title">欢迎</div>
-        <div class="header_right">Welcome Admin, <a href="#" class="settings">Settings</a> <a
-                    href="../../util/controllers/LogoutController.php" class="logout">Logout</a>
+        <div class="header_right">
+            <a href="../../util/controllers/LogoutController.php" class="logout">Logout</a>
         </div>
         <div class="menu">
             <ul>
@@ -154,7 +154,8 @@
                         </div>
                         <div class="form_row">
                             <label for="categorySubmenu">子类:</label>
-                            <input oninput="checkSubmenu();" required class="form_input" autocomplete="off" name="categorySubmenu" id="categorySubmenu"/>
+                            <input oninput="checkSubmenu();" required class="form_input" autocomplete="off"
+                                   name="categorySubmenu" id="categorySubmenu"/>
                             <p id="submenuWarming" class="warming">该子类名已经存在！</p>
                         </div>
                         <div class="form_row">
@@ -207,7 +208,8 @@
                         </div>
                         <div class="form_row">
                             <label for="productMenu">分类：</label>
-                            <select onchange="getSubmenuByParent();" required class="form_input" name="productMenu" id="productMenu"></select>
+                            <select onchange="getSubmenuByParent();" required class="form_input" name="productMenu"
+                                    id="productMenu"></select>
                         </div>
                         <div class="form_row">
                             <label for="productSubmenu">子类：</label>
@@ -252,11 +254,6 @@
                     </tr>
                     </thead>
                     <tbody id="product-list"></tbody>
-                    <tfoot>
-                    <tr>
-                        <td colspan="12">点击图片名显示详情</td>
-                    </tr>
-                    </tfoot>
                 </table>
             </div>
             <div class="right_content" id="aboutManage">
