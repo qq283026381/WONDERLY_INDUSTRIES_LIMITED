@@ -12,7 +12,7 @@ $content="";
 if ($result) {
     while ($row = $result->fetch_array()) {
         $item = $row['item'];
-        $content .= "<option class='" . $item . "'>" . $item . "</option>";
+        $content .= "<option value='" . $item . "'>" . $item . "</option>";
     }
     echo $content;
 }
