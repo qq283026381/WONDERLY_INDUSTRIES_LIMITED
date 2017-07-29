@@ -7,3 +7,4 @@
  */
 define("SLIDER_PATH","../../assets/imgs/slider/");
 define("CONTACT_PATH","../../assets/imgs/contact/");
+define("PRODUCT_PATH","../../assets/imgs/product/");
