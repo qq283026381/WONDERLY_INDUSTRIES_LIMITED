@@ -52,15 +52,27 @@ class Product
         $mysql = new Mysql();
         $conn = $mysql->connect();
         $queryDeleteProduct = "delete from product where `img` = '" . $img . "'";
-        $result=$conn->query($queryDeleteProduct);
+        $result = $conn->query($queryDeleteProduct);
         $conn->close();
         return $result;
     }
-    function getCategoryByImg($img){
+
+    function getCategoryByImg($img)
+    {
         $mysql = new Mysql();
         $conn = $mysql->connect();
-        $queryCategory = "select `category` from product where `img` = '" . $img . "'";
-        $result=$conn->query($queryCategory);
+        $queryCategory = "select * from product where `img` = '" . $img . "'";
+        $result = $conn->query($queryCategory);
+        $conn->close();
+        return $result;
+    }
+
+    function reviseProduct($index, $submenu, $description, $size, $img, $oldImg)
+    {
+        $mysql = new Mysql();
+        $conn = $mysql->connect();
+        $queryReviseProduct = "update product set `index`='" . $index . "',`category`='" . $submenu . "',`description`='" . $description . "',`size`='" . $size . "',`img`='" . $img . "' where `img`='" . $oldImg . "'";
+        $result=$conn->query($queryReviseProduct);
         $conn->close();
         return $result;
     }
