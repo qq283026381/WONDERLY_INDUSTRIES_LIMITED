@@ -6,6 +6,8 @@
  * Time: 9:34
  */
 require "../mysql/mysql.php";
+require "../config.php";
+$productUrl = constant("PRODUCT_PATH");
 $mysql = new Mysql();
 $conn = $mysql->connect();
 $menu = "";
@@ -29,7 +31,7 @@ if ($menuResult->num_rows > 0) {
                 if ($productResult->num_rows > 0) {
                     while ($productItems = $productResult->fetch_array()) {
                         $product = $productItems['img'];
-                        $content .= "<img src='../../assets/imgs/" . $submenu . "/" . $product . "' alt='" . eraseSuffix($product) . "' onclick='showBox();showProductDetail(\"" . $product . "\")' />";
+                        $content .= "<img src='" . $productUrl . $menu . "/" . $submenu . "/" . $product . "' alt='" . eraseSuffix($product) . "' onclick='showBox();showProductDetail(\"" . $product . "\")' />";
                     }
                 }
                 $content .= "</section>";
