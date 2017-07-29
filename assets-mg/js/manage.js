@@ -337,6 +337,25 @@ function checkMenu() {
     xmlhttp.open("GET", "../../util/ajax-mg/ifExistMenu.php?item=" + item, true);
     xmlhttp.send();
 }
+function checkSubmenu() {
+    var item = document.getElementById("categorySubmenu").value;
+    var warming = document.getElementById("submenuWarming");
+    var menuSubmit = document.getElementById("submenuSubmit");
+    var xmlhttp = returnXmlhttp();
+    xmlhttp.onreadystatechange = function menuState() {
+        if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
+            if (xmlhttp.responseText === "true") {
+                warming.style.display = "block";
+                menuSubmit.disabled = "disabled";
+            } else {
+                warming.style.display = "none";
+                menuSubmit.disabled = "";
+            }
+        }
+    };
+    xmlhttp.open("GET", "../../util/ajax-mg/ifExistSubmenu.php?item=" + item, true);
+    xmlhttp.send();
+}
 function checkReviseMenu() {
     var item = document.getElementById("reviseCategoryMenu").value;
     var warming = document.getElementById("reviseMenuWarning");
