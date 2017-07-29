@@ -31,9 +31,9 @@ if ($menuResult) {
                         $content .= "<td>" . $index . "</td>";
                         $content .= "<td>" . $submenuItem['item'] . "</td>";
                         $content .= "<td>" . $img . "</td>";
-                        $content .= "<td><img src='" . constant("PRODUCT_PATH") . $menuItem['item'] ."/". $submenuItem['item'] . "/" . $img . "' /></td>";
+                        $content .= "<td><img src='" . constant("PRODUCT_PATH") . $menuItem['item'] . "/" . $submenuItem['item'] . "/" . $img . "' /></td>";
                         $content .= "<td><a><img src=\"../../assets-mg/img/edit.png\" border=\"0\"> </a></td>";
-                        $content .= "<td><a><img src=\"../../assets-mg/img/trash.gif\" border=\"0\"> </a></td>";
+                        $content .= "<td><a href='../../util/ajax-mg/deleteProduct.php?img=" . $img . "' ><img src=\"../../assets-mg/img/trash.gif\" border=\"0\"> </a></td>";
                         $content .= "</tr>";
                         $i++;
                     }
