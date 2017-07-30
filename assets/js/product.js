@@ -112,3 +112,7 @@ function getProductDetail(id) {
     xmlhttp.open("GET", "../../util/ajax/getProductDetail.php?img=" + id, true);
     xmlhttp.send();
 }
+
+function backTop() {
+    $("html,body").animate({scrollTop: 0}, 500);
+}
