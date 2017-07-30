@@ -239,6 +239,9 @@ require "../../util/controllers/verify.php";
                         <p>
                             <span class="redStar">*</span> 图片不要重复选取
                         </p>
+                        <p>
+                            <span class="redStar">*</span> 图片尺寸150*150
+                        </p>
                     </div>
                 </div>
                 <h2>产品清单</h2>
@@ -359,10 +362,12 @@ require "../../util/controllers/verify.php";
 
 
         <div class="sidebar" id="sidebar">
-            <h2>Page Section</h2>
+            <h2>页面选择</h2>
             <ul id="sideMenu">
                 <li class="active"><a href="#homeManage">首页管理</a></li>
                 <li><a href="#aboutManage">关于管理</a></li>
+                <li><a href="#categoryManage">分类管理</a></li>
+                <li><a href="#productManage">产品管理</a></li>
                 <li><a href="#contactManage">联系管理</a></li>
             </ul>
             <h2>返回主网页</h2>
