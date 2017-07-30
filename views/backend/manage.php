@@ -1,5 +1,5 @@
 <?php
-//require "../../util/controllers/verify.php";
+require "../../util/controllers/verify.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
