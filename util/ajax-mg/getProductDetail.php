@@ -65,7 +65,7 @@ if ($result->num_rows > 0) {
     $content .= "<input type='hidden' name='oldMenu' value='" . $parent . "'>";
     $content .= "<input type='hidden' name='oldSubmenu' value='" . $category . "'>";
     $content .= "</div><div class=\"form_row\">";
-    $content .= "<input type=\"submit\" class=\"form_submit\" value=\"添加\">";
+    $content .= "<input type=\"submit\" class=\"form_submit\" value=\"修改\">";
     $content .= "</div><div class=\"clear\"></div>";
     $content .= "</form>";
 }
