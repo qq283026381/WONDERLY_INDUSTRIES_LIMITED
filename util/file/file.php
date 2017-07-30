@@ -1,5 +1,5 @@
 <?php
-
+require "../controllers/verify.php";
 /**
  * Created by PhpStorm.
  * User: Bonnenu
