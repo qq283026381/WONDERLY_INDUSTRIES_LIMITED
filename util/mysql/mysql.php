@@ -1,5 +1,5 @@
 <?php
-
+require "../config.php";
 /**
  * Created by PhpStorm.
  * User: Bonnenu
@@ -10,10 +10,10 @@ class Mysql
 {
     public function connect()
     {
-        $servername = "59.188.69.138";
-        $username = "a0328132211";
-        $password = "4b8c8d2b";
-        $dbname = "a0328132211";
+        $servername = constant("SERVERNAME");
+        $username = constant("USERNAME");
+        $password = constant("PASSWORD");
+        $dbname = constant("DBNAME");
 // 创建连接
         $conn = new mysqli($servername, $username, $password, $dbname);
 // Check connection
