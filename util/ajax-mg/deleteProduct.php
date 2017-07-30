@@ -1,4 +1,6 @@
 <?php
+require "../controllers/verify.php";
+header("Content-type: text/html; charset=utf-8");
 /**
  * Created by PhpStorm.
  * User: Bonnenu
@@ -11,12 +13,14 @@ if ($img) {
     $product = new Product();
     $categoryResult = $product->getCategoryByImg($img);
     if ($categoryResult) {
-        $category = $categoryResult->fetch_array()['category'];
+        $category = $categoryResult->fetch_array();
+        $category = $category['category'];
         require "../mysql/menu.php";
         $menu = new Menu();
         $menuResult = $menu->getSubmenuByItem($category);
         if ($menuResult) {
-            $menuItem = $menuResult->fetch_array()['parent'];
+            $menuItem = $menuResult->fetch_array();
+            $menuItem=$menuItem['parent'];
             $result = $product->deleteProduct($img);
             if ($result) {
                 require "../file/file.php";

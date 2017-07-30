@@ -1,4 +1,6 @@
 <?php
+require "../controllers/verify.php";
+header("Content-type: text/html; charset=utf-8");
 /**
  * Created by PhpStorm.
  * User: Bonnenu
@@ -12,10 +14,12 @@ $menu = new Menu();
 $img = isset($_GET['img']) ? $_GET['img'] : "";
 $content = "";
 $result = $product->getCategoryByImg($img);
-$category = $product->getCategoryByImg($img)->fetch_array()['category'];
-$parent = $menu->getSubmenuByItem($category)->fetch_array()['parent'];
 if ($result->num_rows > 0) {
     $row = $result->fetch_array();
+    $category=$row['category'];
+    $parent = $menu->getSubmenuByItem($category);
+    $parent=$parent->fetch_array();
+    $parent=$parent['parent'];
     $content .= "<form class=\"form\" action=\"../../util/ajax-mg/reviseProduct.php\" enctype=\"multipart/form-data\" method=\"post\" onsubmit=\"return checkReviseProductImg();\">";
     $content .= "<div class=\"form_row\">";
     $content .= "<label for=\"reviseProductIndex\">优先级:</label>";
