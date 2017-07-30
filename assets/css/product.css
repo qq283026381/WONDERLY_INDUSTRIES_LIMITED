@@ -52,6 +52,7 @@ li {
 }
 
 .detail img {
+    cursor: pointer;
     margin: 3px 6px;
 }
 
