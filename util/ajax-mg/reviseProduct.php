@@ -36,11 +36,11 @@ if ($index != "" && $category != "" && $description != "" && $size != "") {
         $upload->uploadJpg($file, $imgUrl);
     }
     $result = $product->reviseProduct($index, $category, $description, $size, $img, $oldImg);
-    /*if ($result) {
+    if ($result) {
         echo "<script>alert('修改成功！');window.location.href=document.referrer+'#productManage-tab';</script>";
     } else {
         echo "<script>alert('修改失败！');history.back();</script>";
-    }*/
+    }
 } else {
     echo "<script>alert('修改失败！');history.back();</script>";
 }
